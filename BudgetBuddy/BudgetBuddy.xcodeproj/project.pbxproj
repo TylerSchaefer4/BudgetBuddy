@@ -13,6 +13,15 @@
 		347F7FB92A40BF1800D27B85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 347F7FB72A40BF1800D27B85 /* Main.storyboard */; };
 		347F7FBB2A40BF1900D27B85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 347F7FBA2A40BF1900D27B85 /* Assets.xcassets */; };
 		347F7FBE2A40BF1900D27B85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 347F7FBC2A40BF1900D27B85 /* LaunchScreen.storyboard */; };
+		347F7FC62A40BFE400D27B85 /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FC52A40BFE400D27B85 /* HomeScreenView.swift */; };
+		347F7FC92A40C00E00D27B85 /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FC82A40C00E00D27B85 /* AddTransactionView.swift */; };
+		347F7FCB2A40C01F00D27B85 /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FCA2A40C01F00D27B85 /* AddTransactionViewController.swift */; };
+		347F7FCE2A40C06500D27B85 /* EditBudgetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FCD2A40C06500D27B85 /* EditBudgetController.swift */; };
+		347F7FD02A40C07600D27B85 /* EditBudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FCF2A40C07600D27B85 /* EditBudgetView.swift */; };
+		347F7FD32A40C09F00D27B85 /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FD22A40C09F00D27B85 /* AddFriendView.swift */; };
+		347F7FD52A40C0B400D27B85 /* AddFriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FD42A40C0B400D27B85 /* AddFriendController.swift */; };
+		347F7FD82A40C0DC00D27B85 /* ShowProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FD72A40C0DC00D27B85 /* ShowProfileController.swift */; };
+		347F7FDA2A40C0ED00D27B85 /* ShowProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FD92A40C0ED00D27B85 /* ShowProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +33,15 @@
 		347F7FBA2A40BF1900D27B85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		347F7FBD2A40BF1900D27B85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		347F7FBF2A40BF1900D27B85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		347F7FC52A40BFE400D27B85 /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
+		347F7FC82A40C00E00D27B85 /* AddTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionView.swift; sourceTree = "<group>"; };
+		347F7FCA2A40C01F00D27B85 /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
+		347F7FCD2A40C06500D27B85 /* EditBudgetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBudgetController.swift; sourceTree = "<group>"; };
+		347F7FCF2A40C07600D27B85 /* EditBudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBudgetView.swift; sourceTree = "<group>"; };
+		347F7FD22A40C09F00D27B85 /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
+		347F7FD42A40C0B400D27B85 /* AddFriendController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendController.swift; sourceTree = "<group>"; };
+		347F7FD72A40C0DC00D27B85 /* ShowProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowProfileController.swift; sourceTree = "<group>"; };
+		347F7FD92A40C0ED00D27B85 /* ShowProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +74,64 @@
 		347F7FB02A40BF1800D27B85 /* BudgetBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				347F7FCC2A40C02B00D27B85 /* AddTransaction */,
+				347F7FC72A40BFEE00D27B85 /* HomeScreen */,
+				347F7FD12A40C07A00D27B85 /* EditBudget */,
+				347F7FD62A40C0B700D27B85 /* AddFriend */,
+				347F7FDB2A40C0F200D27B85 /* ShowProfile */,
 				347F7FB12A40BF1800D27B85 /* AppDelegate.swift */,
 				347F7FB32A40BF1800D27B85 /* SceneDelegate.swift */,
-				347F7FB52A40BF1800D27B85 /* ViewController.swift */,
 				347F7FB72A40BF1800D27B85 /* Main.storyboard */,
 				347F7FBA2A40BF1900D27B85 /* Assets.xcassets */,
 				347F7FBC2A40BF1900D27B85 /* LaunchScreen.storyboard */,
 				347F7FBF2A40BF1900D27B85 /* Info.plist */,
 			);
 			path = BudgetBuddy;
+			sourceTree = "<group>";
+		};
+		347F7FC72A40BFEE00D27B85 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				347F7FC52A40BFE400D27B85 /* HomeScreenView.swift */,
+				347F7FB52A40BF1800D27B85 /* ViewController.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		347F7FCC2A40C02B00D27B85 /* AddTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				347F7FCA2A40C01F00D27B85 /* AddTransactionViewController.swift */,
+				347F7FC82A40C00E00D27B85 /* AddTransactionView.swift */,
+			);
+			path = AddTransaction;
+			sourceTree = "<group>";
+		};
+		347F7FD12A40C07A00D27B85 /* EditBudget */ = {
+			isa = PBXGroup;
+			children = (
+				347F7FCD2A40C06500D27B85 /* EditBudgetController.swift */,
+				347F7FCF2A40C07600D27B85 /* EditBudgetView.swift */,
+			);
+			path = EditBudget;
+			sourceTree = "<group>";
+		};
+		347F7FD62A40C0B700D27B85 /* AddFriend */ = {
+			isa = PBXGroup;
+			children = (
+				347F7FD22A40C09F00D27B85 /* AddFriendView.swift */,
+				347F7FD42A40C0B400D27B85 /* AddFriendController.swift */,
+			);
+			path = AddFriend;
+			sourceTree = "<group>";
+		};
+		347F7FDB2A40C0F200D27B85 /* ShowProfile */ = {
+			isa = PBXGroup;
+			children = (
+				347F7FD72A40C0DC00D27B85 /* ShowProfileController.swift */,
+				347F7FD92A40C0ED00D27B85 /* ShowProfileView.swift */,
+			);
+			path = ShowProfile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +205,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				347F7FD32A40C09F00D27B85 /* AddFriendView.swift in Sources */,
+				347F7FD52A40C0B400D27B85 /* AddFriendController.swift in Sources */,
 				347F7FB62A40BF1800D27B85 /* ViewController.swift in Sources */,
+				347F7FCE2A40C06500D27B85 /* EditBudgetController.swift in Sources */,
 				347F7FB22A40BF1800D27B85 /* AppDelegate.swift in Sources */,
+				347F7FDA2A40C0ED00D27B85 /* ShowProfileView.swift in Sources */,
+				347F7FD82A40C0DC00D27B85 /* ShowProfileController.swift in Sources */,
+				347F7FD02A40C07600D27B85 /* EditBudgetView.swift in Sources */,
 				347F7FB42A40BF1800D27B85 /* SceneDelegate.swift in Sources */,
+				347F7FCB2A40C01F00D27B85 /* AddTransactionViewController.swift in Sources */,
+				347F7FC62A40BFE400D27B85 /* HomeScreenView.swift in Sources */,
+				347F7FC92A40C00E00D27B85 /* AddTransactionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
