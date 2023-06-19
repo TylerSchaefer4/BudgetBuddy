@@ -8,6 +8,10 @@
 import UIKit
 
 class EditBudgetView: UIView {
+    
+    var labelIncomePerWeek: UILabel!
+    var labelSavingsPercentage: UILabel!
+    var tableViewExpectedExpenses: UITableView! // not really sure what the implemention will look like for this.
 
     /*
     // Only override draw() if you perform custom drawing.

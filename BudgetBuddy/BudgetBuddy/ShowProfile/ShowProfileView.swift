@@ -8,6 +8,11 @@
 import UIKit
 
 class ShowProfileView: UIView {
+    
+    var profilePic: UIImageView!
+    var labelName: UILabel!
+    var labelUserName: UILabel!
+    var labelEmail: UILabel!
 
     /*
     // Only override draw() if you perform custom drawing.

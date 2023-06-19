@@ -8,6 +8,19 @@
 import UIKit
 
 class HomeScreenView: UIView {
+    
+    var labelRecentTransactions: UILabel!
+    var tableViewRecentTransactions: UITableView!
+    var buttonAddTransaction: UIButton!
+    var labelBudgetStatus: UILabel!
+    var labelThisWeeksBudget: UILabel!
+    var labelTotalAmountSpent: UILabel!
+    var labelExpectedExpenses: UILabel!
+    var labelAdditionalExpenses: UILabel!
+    var buttonEditBudget: UIButton!
+    var labelBudgetLeaderBoard: UILabel!
+    var tableViewBudgetLeaderBoard: UITableView!
+    var buttonAddFriends: UIButton!
 
     /*
     // Only override draw() if you perform custom drawing.
