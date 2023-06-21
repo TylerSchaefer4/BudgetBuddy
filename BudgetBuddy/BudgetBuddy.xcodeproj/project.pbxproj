@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12FAF97D2A437E4600619DB9 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FAF97C2A437E4600619DB9 /* EditProfileView.swift */; };
+		12FAF97F2A437E5B00619DB9 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FAF97E2A437E5B00619DB9 /* EditProfileViewController.swift */; };
 		347F7FB22A40BF1800D27B85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FB12A40BF1800D27B85 /* AppDelegate.swift */; };
 		347F7FB42A40BF1800D27B85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FB32A40BF1800D27B85 /* SceneDelegate.swift */; };
 		347F7FB62A40BF1800D27B85 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FB52A40BF1800D27B85 /* ViewController.swift */; };
@@ -31,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12FAF97C2A437E4600619DB9 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		12FAF97E2A437E5B00619DB9 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		347F7FAE2A40BF1800D27B85 /* BudgetBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		347F7FB12A40BF1800D27B85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		347F7FB32A40BF1800D27B85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +71,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12FAF97B2A437E2700619DB9 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				12FAF97C2A437E4600619DB9 /* EditProfileView.swift */,
+				12FAF97E2A437E5B00619DB9 /* EditProfileViewController.swift */,
+			);
+			path = EditProfile;
+			sourceTree = "<group>";
+		};
 		347F7FA52A40BF1700D27B85 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +99,7 @@
 		347F7FB02A40BF1800D27B85 /* BudgetBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				12FAF97B2A437E2700619DB9 /* EditProfile */,
 				347F7FCC2A40C02B00D27B85 /* AddTransaction */,
 				347F7FC72A40BFEE00D27B85 /* HomeScreen */,
 				347F7FD12A40C07A00D27B85 /* EditBudget */,
@@ -235,11 +249,13 @@
 				347F7FCE2A40C06500D27B85 /* EditBudgetController.swift in Sources */,
 				347F7FB22A40BF1800D27B85 /* AppDelegate.swift in Sources */,
 				347F7FDA2A40C0ED00D27B85 /* ShowProfileView.swift in Sources */,
+				12FAF97F2A437E5B00619DB9 /* EditProfileViewController.swift in Sources */,
 				347F7FD82A40C0DC00D27B85 /* ShowProfileController.swift in Sources */,
 				347F7FD02A40C07600D27B85 /* EditBudgetView.swift in Sources */,
 				347F7FB42A40BF1800D27B85 /* SceneDelegate.swift in Sources */,
 				347F7FCB2A40C01F00D27B85 /* AddTransactionViewController.swift in Sources */,
 				347F7FC62A40BFE400D27B85 /* HomeScreenView.swift in Sources */,
+				12FAF97D2A437E4600619DB9 /* EditProfileView.swift in Sources */,
 				347F7FC92A40C00E00D27B85 /* AddTransactionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
