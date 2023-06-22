@@ -16,7 +16,6 @@ class AddTransactionView: UIView {
     var textFieldDescription: UITextField!
     var textFieldLocation: UITextField! // This is probably going to use a map view, but use this as placeholder for now?
     var labelAttachReceipt: UILabel!
-    
     var ReceiptPhotoFUNCTIONALITY: UILabel! // implement receipt photo functionality here
 
 

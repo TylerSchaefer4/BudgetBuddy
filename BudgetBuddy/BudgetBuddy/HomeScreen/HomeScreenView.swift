@@ -9,6 +9,7 @@ import UIKit
 
 class HomeScreenView: UIView {
     
+    var scrollView: UIScrollView!
     var labelRecentTransactions: UILabel!
     var tableViewRecentTransactions: UITableView!
     var buttonAddTransaction: UIButton!
@@ -22,12 +23,178 @@ class HomeScreenView: UIView {
     var tableViewBudgetLeaderBoard: UITableView!
     var buttonAddFriends: UIButton!
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.backgroundColor = .white
+        
+        setupScrollView()
+        setuplabelRecentTransactions()
+        setuptableViewRecentTransactions()
+        setupbuttonAddTransaction()
+        setuplabelBudgetStatus()
+        setuplabelThisWeeksBudget()
+        setuplabelTotalAmountSpent()
+        setuplabelExpectedExpenses()
+        setuplabelAdditionalExpenses()
+        setupbuttonEditBudget()
+        setuplabelBudgetLeaderBoard()
+        setuptableViewBudgetLeaderBoard()
+        setupbuttonAddFriends()
+        
+        initConstraints()
     }
-    */
+    
+    
+    func setupScrollView(){
+        scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(scrollView)
+    }
+    
+    func setuplabelRecentTransactions() {
+        labelRecentTransactions = UILabel()
+        labelRecentTransactions.font = .boldSystemFont(ofSize: 18)
+        labelRecentTransactions.text = "Recent Transactions:"
+        labelRecentTransactions.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(labelRecentTransactions)
+    }
 
+    func setuptableViewRecentTransactions() {
+        tableViewRecentTransactions = UITableView()
+        tableViewRecentTransactions.register(TransactionsTableViewCell.self, forCellReuseIdentifier: Configs.tableViewTransactionsID)
+        tableViewRecentTransactions.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(tableViewRecentTransactions)
+    }
+    func setupbuttonAddTransaction(){
+        buttonAddTransaction = UIButton(type: .system)
+        buttonAddTransaction.setTitle("Add Transaction", for: .normal)
+        buttonAddTransaction.titleLabel?.font = .boldSystemFont(ofSize: 14)
+        buttonAddTransaction.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(buttonAddTransaction)
+    }
+    func setuplabelBudgetStatus() {
+        labelBudgetStatus = UILabel()
+        labelBudgetStatus.text = "Budget Status"
+
+        labelBudgetStatus.font = .boldSystemFont(ofSize: 18)
+        labelBudgetStatus.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(labelBudgetStatus)
+    }
+    
+    func setuplabelThisWeeksBudget() {
+        labelThisWeeksBudget = UILabel()
+        labelThisWeeksBudget.text = "This weeks's budget: $"
+
+        labelThisWeeksBudget.font = .boldSystemFont(ofSize: 14)
+        labelThisWeeksBudget.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(labelThisWeeksBudget)
+    }
+    func setuplabelTotalAmountSpent() {
+        labelTotalAmountSpent = UILabel()
+        labelTotalAmountSpent.text = "Total amount spent: $"
+        labelTotalAmountSpent.font = .boldSystemFont(ofSize: 14)
+        labelTotalAmountSpent.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(labelTotalAmountSpent)
+    }
+    func setuplabelExpectedExpenses(){
+        labelExpectedExpenses = UILabel()
+        labelExpectedExpenses.text = "Expected Expenses: $"
+
+        labelExpectedExpenses.font = .boldSystemFont(ofSize: 14)
+        labelExpectedExpenses.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(labelExpectedExpenses)
+    }
+    func setuplabelAdditionalExpenses(){
+        labelAdditionalExpenses = UILabel()
+        labelAdditionalExpenses.text = "Additional Expenses: $"
+
+        labelAdditionalExpenses.font = .boldSystemFont(ofSize: 14)
+        labelAdditionalExpenses.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(labelAdditionalExpenses)
+    }
+    func setupbuttonEditBudget(){
+        buttonEditBudget = UIButton(type: .system)
+        buttonEditBudget.setTitle("Edit", for: .normal)
+        buttonEditBudget.titleLabel?.font = .boldSystemFont(ofSize: 14)
+        buttonEditBudget.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(buttonEditBudget)
+    }
+    func setuplabelBudgetLeaderBoard(){
+        labelBudgetLeaderBoard = UILabel()
+        labelBudgetLeaderBoard.text = "Budget Leaderboard"
+
+        labelBudgetLeaderBoard.font = .boldSystemFont(ofSize: 18)
+        labelBudgetLeaderBoard.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(labelBudgetLeaderBoard)
+    }
+    func setuptableViewBudgetLeaderBoard(){
+        tableViewBudgetLeaderBoard = UITableView()
+        tableViewBudgetLeaderBoard.register(FriendsTableViewCell.self, forCellReuseIdentifier: Configs.tableViewFriendsID)
+        tableViewBudgetLeaderBoard.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(tableViewBudgetLeaderBoard)
+    }
+    func setupbuttonAddFriends(){
+        buttonAddFriends = UIButton(type: .system)
+        buttonAddFriends.setTitle("Add Friends", for: .normal)
+        buttonAddFriends.titleLabel?.font = .boldSystemFont(ofSize: 14)
+        buttonAddFriends.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(buttonAddFriends)
+    }
+    
+    func initConstraints() {
+            NSLayoutConstraint.activate([
+                scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+                scrollView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+                scrollView.widthAnchor.constraint(equalTo:self.safeAreaLayoutGuide.widthAnchor),
+                scrollView.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor),
+                        
+                
+                labelRecentTransactions.topAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.topAnchor, constant: 8),
+                labelRecentTransactions.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+                
+                tableViewRecentTransactions.topAnchor.constraint(equalTo: labelRecentTransactions.bottomAnchor, constant: 8),
+                tableViewRecentTransactions.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor),
+                tableViewRecentTransactions.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor),
+                
+                buttonAddTransaction.topAnchor.constraint(equalTo: tableViewRecentTransactions.bottomAnchor, constant: 8),
+                buttonAddTransaction.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+                
+                labelBudgetStatus.topAnchor.constraint(equalTo: buttonAddTransaction.bottomAnchor, constant: 16),
+                labelBudgetStatus.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+                
+                labelThisWeeksBudget.topAnchor.constraint(equalTo: labelBudgetStatus.bottomAnchor, constant: 8),
+                labelThisWeeksBudget.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+                
+                labelTotalAmountSpent.topAnchor.constraint(equalTo: labelThisWeeksBudget.bottomAnchor, constant: 8),
+                labelTotalAmountSpent.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+                
+                labelExpectedExpenses.topAnchor.constraint(equalTo: labelTotalAmountSpent.bottomAnchor, constant: 8),
+                labelExpectedExpenses.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+                
+                labelAdditionalExpenses.topAnchor.constraint(equalTo: labelExpectedExpenses.bottomAnchor, constant: 8),
+                labelAdditionalExpenses.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+                
+                buttonEditBudget.topAnchor.constraint(equalTo: labelAdditionalExpenses.bottomAnchor, constant: 8),
+                buttonEditBudget.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+                
+                labelBudgetLeaderBoard.topAnchor.constraint(equalTo: buttonEditBudget.bottomAnchor, constant: 16),
+                labelBudgetLeaderBoard.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+                
+                tableViewBudgetLeaderBoard.topAnchor.constraint(equalTo: labelBudgetLeaderBoard.bottomAnchor, constant: 8),
+                tableViewBudgetLeaderBoard.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor),
+                tableViewBudgetLeaderBoard.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor),
+                
+                buttonAddFriends.topAnchor.constraint(equalTo: tableViewBudgetLeaderBoard.bottomAnchor, constant: 8),
+                buttonAddFriends.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+                buttonAddFriends.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+            ])
+        }
+
+
+
+    
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }

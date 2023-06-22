@@ -30,6 +30,12 @@
 		347F7FE42A40CC1F00D27B85 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 347F7FE32A40CC1F00D27B85 /* FirebaseFirestore */; };
 		347F7FE62A40CC1F00D27B85 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 347F7FE52A40CC1F00D27B85 /* FirebaseFirestoreSwift */; };
 		347F7FE82A40CC1F00D27B85 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 347F7FE72A40CC1F00D27B85 /* FirebaseStorage */; };
+		347F7FEA2A44BF1C00D27B85 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FE92A44BF1C00D27B85 /* Configs.swift */; };
+		347F7FEC2A44C02A00D27B85 /* TransactionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FEB2A44C02A00D27B85 /* TransactionsTableViewCell.swift */; };
+		347F7FEE2A44C03B00D27B85 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FED2A44C03B00D27B85 /* FriendsTableViewCell.swift */; };
+		347F7FF12A4507B600D27B85 /* ImageViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FF02A4507B600D27B85 /* ImageViewUtils.swift */; };
+		347F7FF32A4507CF00D27B85 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FF22A4507CF00D27B85 /* Transaction.swift */; };
+		347F7FF52A45091600D27B85 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FF42A45091600D27B85 /* Friend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +59,12 @@
 		347F7FD72A40C0DC00D27B85 /* ShowProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowProfileController.swift; sourceTree = "<group>"; };
 		347F7FD92A40C0ED00D27B85 /* ShowProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowProfileView.swift; sourceTree = "<group>"; };
 		347F7FDC2A40CAE300D27B85 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		347F7FE92A44BF1C00D27B85 /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
+		347F7FEB2A44C02A00D27B85 /* TransactionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsTableViewCell.swift; sourceTree = "<group>"; };
+		347F7FED2A44C03B00D27B85 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
+		347F7FF02A4507B600D27B85 /* ImageViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewUtils.swift; sourceTree = "<group>"; };
+		347F7FF22A4507CF00D27B85 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		347F7FF42A45091600D27B85 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +111,7 @@
 		347F7FB02A40BF1800D27B85 /* BudgetBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				347F7FEF2A45078E00D27B85 /* DataModels */,
 				12FAF97B2A437E2700619DB9 /* EditProfile */,
 				347F7FCC2A40C02B00D27B85 /* AddTransaction */,
 				347F7FC72A40BFEE00D27B85 /* HomeScreen */,
@@ -112,6 +125,7 @@
 				347F7FBC2A40BF1900D27B85 /* LaunchScreen.storyboard */,
 				347F7FBF2A40BF1900D27B85 /* Info.plist */,
 				347F7FDC2A40CAE300D27B85 /* GoogleService-Info.plist */,
+				347F7FE92A44BF1C00D27B85 /* Configs.swift */,
 			);
 			path = BudgetBuddy;
 			sourceTree = "<group>";
@@ -121,6 +135,8 @@
 			children = (
 				347F7FC52A40BFE400D27B85 /* HomeScreenView.swift */,
 				347F7FB52A40BF1800D27B85 /* ViewController.swift */,
+				347F7FEB2A44C02A00D27B85 /* TransactionsTableViewCell.swift */,
+				347F7FED2A44C03B00D27B85 /* FriendsTableViewCell.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -159,6 +175,16 @@
 				347F7FD92A40C0ED00D27B85 /* ShowProfileView.swift */,
 			);
 			path = ShowProfile;
+			sourceTree = "<group>";
+		};
+		347F7FEF2A45078E00D27B85 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				347F7FF02A4507B600D27B85 /* ImageViewUtils.swift */,
+				347F7FF22A4507CF00D27B85 /* Transaction.swift */,
+				347F7FF42A45091600D27B85 /* Friend.swift */,
+			);
+			path = DataModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,9 +273,15 @@
 				347F7FD52A40C0B400D27B85 /* AddFriendController.swift in Sources */,
 				347F7FB62A40BF1800D27B85 /* ViewController.swift in Sources */,
 				347F7FCE2A40C06500D27B85 /* EditBudgetController.swift in Sources */,
+				347F7FF12A4507B600D27B85 /* ImageViewUtils.swift in Sources */,
 				347F7FB22A40BF1800D27B85 /* AppDelegate.swift in Sources */,
+				347F7FEA2A44BF1C00D27B85 /* Configs.swift in Sources */,
+				347F7FF52A45091600D27B85 /* Friend.swift in Sources */,
+				347F7FEE2A44C03B00D27B85 /* FriendsTableViewCell.swift in Sources */,
+				347F7FEC2A44C02A00D27B85 /* TransactionsTableViewCell.swift in Sources */,
 				347F7FDA2A40C0ED00D27B85 /* ShowProfileView.swift in Sources */,
 				12FAF97F2A437E5B00619DB9 /* EditProfileViewController.swift in Sources */,
+				347F7FF32A4507CF00D27B85 /* Transaction.swift in Sources */,
 				347F7FD82A40C0DC00D27B85 /* ShowProfileController.swift in Sources */,
 				347F7FD02A40C07600D27B85 /* EditBudgetView.swift in Sources */,
 				347F7FB42A40BF1800D27B85 /* SceneDelegate.swift in Sources */,
