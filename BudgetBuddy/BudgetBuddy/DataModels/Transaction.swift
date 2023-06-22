@@ -15,14 +15,16 @@ struct Trasaction: Codable {
     var nameOfPlace: String!
     var description: String!
     var location: String! // might turn this into actual GPS location?
+    var timeStamp: Date!
     let imageUrl: String?
     
-    init(type: String, amount: Int, nameOfPlace: String, description: String, location: String, imageUrl: String) {
+    init(type: String, amount: Int, nameOfPlace: String, description: String, location: String, timeStamp: Date, imageUrl: String) {
         self.type = type
         self.amount = amount
         self.nameOfPlace = nameOfPlace
         self.description = description
         self.location = location
+        self.timeStamp = timeStamp
         self.imageUrl = imageUrl
     }
 }

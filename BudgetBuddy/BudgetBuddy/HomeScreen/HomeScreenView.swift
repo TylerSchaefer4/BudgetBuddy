@@ -92,7 +92,6 @@ class HomeScreenView: UIView {
     func setuplabelTotalAmountSpent() {
         labelTotalAmountSpent = UILabel()
         labelTotalAmountSpent.text = "Total amount spent: $"
-
         labelTotalAmountSpent.font = .boldSystemFont(ofSize: 14)
         labelTotalAmountSpent.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(labelTotalAmountSpent)
