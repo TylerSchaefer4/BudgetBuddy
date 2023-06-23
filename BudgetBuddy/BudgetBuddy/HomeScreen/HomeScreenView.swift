@@ -44,16 +44,16 @@ class HomeScreenView: UIView {
         initConstraints()
     }
     
+    
     func setupScrollView(){
         scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(scrollView)
     }
     
-    
     func setuplabelRecentTransactions() {
         labelRecentTransactions = UILabel()
-        labelRecentTransactions.font = .boldSystemFont(ofSize: 14)
+        labelRecentTransactions.font = .boldSystemFont(ofSize: 18)
         labelRecentTransactions.text = "Recent Transactions:"
         labelRecentTransactions.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(labelRecentTransactions)
@@ -68,7 +68,7 @@ class HomeScreenView: UIView {
     func setupbuttonAddTransaction(){
         buttonAddTransaction = UIButton(type: .system)
         buttonAddTransaction.setTitle("Add Transaction", for: .normal)
-        buttonAddTransaction.titleLabel?.font = .boldSystemFont(ofSize: 16)
+        buttonAddTransaction.titleLabel?.font = .boldSystemFont(ofSize: 14)
         buttonAddTransaction.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(buttonAddTransaction)
     }
@@ -92,7 +92,6 @@ class HomeScreenView: UIView {
     func setuplabelTotalAmountSpent() {
         labelTotalAmountSpent = UILabel()
         labelTotalAmountSpent.text = "Total amount spent: $"
-
         labelTotalAmountSpent.font = .boldSystemFont(ofSize: 14)
         labelTotalAmountSpent.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(labelTotalAmountSpent)
@@ -116,7 +115,7 @@ class HomeScreenView: UIView {
     func setupbuttonEditBudget(){
         buttonEditBudget = UIButton(type: .system)
         buttonEditBudget.setTitle("Edit", for: .normal)
-        buttonEditBudget.titleLabel?.font = .boldSystemFont(ofSize: 16)
+        buttonEditBudget.titleLabel?.font = .boldSystemFont(ofSize: 14)
         buttonEditBudget.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(buttonEditBudget)
     }
@@ -137,60 +136,61 @@ class HomeScreenView: UIView {
     func setupbuttonAddFriends(){
         buttonAddFriends = UIButton(type: .system)
         buttonAddFriends.setTitle("Add Friends", for: .normal)
-        buttonAddFriends.titleLabel?.font = .boldSystemFont(ofSize: 16)
+        buttonAddFriends.titleLabel?.font = .boldSystemFont(ofSize: 14)
         buttonAddFriends.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(buttonAddFriends)
     }
     
     func initConstraints() {
-        NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
-                    
-            scrollView.widthAnchor.constraint(equalTo: self.widthAnchor),
-            
-            labelRecentTransactions.topAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.topAnchor, constant: 8),
-            labelRecentTransactions.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            
-            tableViewRecentTransactions.topAnchor.constraint(equalTo: labelRecentTransactions.bottomAnchor, constant: 8),
-            tableViewRecentTransactions.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-            tableViewRecentTransactions.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-            
-            buttonAddTransaction.topAnchor.constraint(equalTo: tableViewRecentTransactions.bottomAnchor, constant: 8),
-            buttonAddTransaction.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            
-            labelBudgetStatus.topAnchor.constraint(equalTo: buttonAddTransaction.bottomAnchor, constant: 16),
-            labelBudgetStatus.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            
-            labelThisWeeksBudget.topAnchor.constraint(equalTo: labelBudgetStatus.bottomAnchor, constant: 8),
-            labelThisWeeksBudget.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            
-            labelTotalAmountSpent.topAnchor.constraint(equalTo: labelThisWeeksBudget.bottomAnchor, constant: 8),
-            labelTotalAmountSpent.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            
-            labelExpectedExpenses.topAnchor.constraint(equalTo: labelTotalAmountSpent.bottomAnchor, constant: 8),
-            labelExpectedExpenses.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            
-            labelAdditionalExpenses.topAnchor.constraint(equalTo: labelExpectedExpenses.bottomAnchor, constant: 8),
-            labelAdditionalExpenses.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            
-            buttonEditBudget.topAnchor.constraint(equalTo: labelAdditionalExpenses.bottomAnchor, constant: 8),
-            buttonEditBudget.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            
-            labelBudgetLeaderBoard.topAnchor.constraint(equalTo: buttonEditBudget.bottomAnchor, constant: 16),
-            labelBudgetLeaderBoard.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            
-            tableViewBudgetLeaderBoard.topAnchor.constraint(equalTo: labelBudgetLeaderBoard.bottomAnchor, constant: 8),
-            tableViewBudgetLeaderBoard.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-            tableViewBudgetLeaderBoard.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-            
-            buttonAddFriends.topAnchor.constraint(equalTo: tableViewBudgetLeaderBoard.bottomAnchor, constant: 8),
-            buttonAddFriends.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            buttonAddFriends.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),
-        ])
-    }
+            NSLayoutConstraint.activate([
+                scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+                scrollView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+                scrollView.widthAnchor.constraint(equalTo:self.safeAreaLayoutGuide.widthAnchor),
+                scrollView.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor),
+                        
+                
+                labelRecentTransactions.topAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.topAnchor, constant: 8),
+                labelRecentTransactions.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+                
+                tableViewRecentTransactions.topAnchor.constraint(equalTo: labelRecentTransactions.bottomAnchor, constant: 8),
+                tableViewRecentTransactions.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor),
+                tableViewRecentTransactions.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor),
+                
+                buttonAddTransaction.topAnchor.constraint(equalTo: tableViewRecentTransactions.bottomAnchor, constant: 8),
+                buttonAddTransaction.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+                
+                labelBudgetStatus.topAnchor.constraint(equalTo: buttonAddTransaction.bottomAnchor, constant: 16),
+                labelBudgetStatus.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+                
+                labelThisWeeksBudget.topAnchor.constraint(equalTo: labelBudgetStatus.bottomAnchor, constant: 8),
+                labelThisWeeksBudget.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+                
+                labelTotalAmountSpent.topAnchor.constraint(equalTo: labelThisWeeksBudget.bottomAnchor, constant: 8),
+                labelTotalAmountSpent.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+                
+                labelExpectedExpenses.topAnchor.constraint(equalTo: labelTotalAmountSpent.bottomAnchor, constant: 8),
+                labelExpectedExpenses.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+                
+                labelAdditionalExpenses.topAnchor.constraint(equalTo: labelExpectedExpenses.bottomAnchor, constant: 8),
+                labelAdditionalExpenses.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+                
+                buttonEditBudget.topAnchor.constraint(equalTo: labelAdditionalExpenses.bottomAnchor, constant: 8),
+                buttonEditBudget.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+                
+                labelBudgetLeaderBoard.topAnchor.constraint(equalTo: buttonEditBudget.bottomAnchor, constant: 16),
+                labelBudgetLeaderBoard.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+                
+                tableViewBudgetLeaderBoard.topAnchor.constraint(equalTo: labelBudgetLeaderBoard.bottomAnchor, constant: 8),
+                tableViewBudgetLeaderBoard.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor),
+                tableViewBudgetLeaderBoard.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor),
+                
+                buttonAddFriends.topAnchor.constraint(equalTo: tableViewBudgetLeaderBoard.bottomAnchor, constant: 8),
+                buttonAddFriends.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+                buttonAddFriends.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+            ])
+        }
+
+
 
     
     

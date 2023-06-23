@@ -97,8 +97,10 @@ class ViewController: UIViewController {
         let profileButton = UIBarButtonItem(image: UIImage(systemName: "person.fill"), style: .plain, target: self, action: #selector(onProfileButtonTapped))
         
         navigationItem.rightBarButtonItem = profileButton
+        hideKeyboardOnTapOutside()
         
         setupRightBarButton(isLoggedin: false)
+        
         
     }
     
@@ -117,6 +119,15 @@ class ViewController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password)
     }
 
-
+    func hideKeyboardOnTapOutside(){
+            //MARK: recognizing the taps on the app screen, not the keyboard...
+            let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardOnTap))
+            view.addGestureRecognizer(tapRecognizer)
+        }
+        
+        @objc func hideKeyboardOnTap(){
+            //MARK: removing the keyboard from screen...
+            view.endEditing(true)
+        }
 }
 
