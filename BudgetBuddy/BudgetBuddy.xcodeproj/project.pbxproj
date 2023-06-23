@@ -130,9 +130,6 @@
 		347F7FA52A40BF1700D27B85 = {
 			isa = PBXGroup;
 			children = (
-				07A5EC142A45480500353669 /* Progress Indicator */,
-				07A5EC0F2A45477500353669 /* Registration */,
-				07A5EC0A2A4543BA00353669 /* Datatypes */,
 				347F7FB02A40BF1800D27B85 /* BudgetBuddy */,
 				347F7FAF2A40BF1800D27B85 /* Products */,
 			);
@@ -149,6 +146,9 @@
 		347F7FB02A40BF1800D27B85 /* BudgetBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				07A5EC142A45480500353669 /* Progress Indicator */,
+				07A5EC0F2A45477500353669 /* Registration */,
+				07A5EC0A2A4543BA00353669 /* Datatypes */,
 				347F7FEF2A45078E00D27B85 /* DataModels */,
 				12FAF97B2A437E2700619DB9 /* EditProfile */,
 				347F7FCC2A40C02B00D27B85 /* AddTransaction */,
