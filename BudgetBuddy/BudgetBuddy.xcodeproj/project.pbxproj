@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07A5EC0C2A4543D600353669 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A5EC0B2A4543D600353669 /* Utils.swift */; };
+		07A5EC0E2A45473900353669 /* RightBarButtonHomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A5EC0D2A45473900353669 /* RightBarButtonHomeScreen.swift */; };
+		07A5EC112A45479100353669 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A5EC102A45479100353669 /* RegistrationViewController.swift */; };
+		07A5EC132A4547A300353669 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A5EC122A4547A300353669 /* RegisterView.swift */; };
+		07A5EC162A45482200353669 /* Progress Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A5EC152A45482200353669 /* Progress Indicator.swift */; };
 		12FAF97D2A437E4600619DB9 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FAF97C2A437E4600619DB9 /* EditProfileView.swift */; };
 		12FAF97F2A437E5B00619DB9 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FAF97E2A437E5B00619DB9 /* EditProfileViewController.swift */; };
 		347F7FB22A40BF1800D27B85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FB12A40BF1800D27B85 /* AppDelegate.swift */; };
@@ -36,6 +41,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07A5EC0B2A4543D600353669 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		07A5EC0D2A45473900353669 /* RightBarButtonHomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightBarButtonHomeScreen.swift; sourceTree = "<group>"; };
+		07A5EC102A45479100353669 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		07A5EC122A4547A300353669 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		07A5EC152A45482200353669 /* Progress Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Progress Indicator.swift"; sourceTree = "<group>"; };
 		12FAF97C2A437E4600619DB9 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		12FAF97E2A437E5B00619DB9 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		347F7FAE2A40BF1800D27B85 /* BudgetBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +87,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07A5EC0A2A4543BA00353669 /* Datatypes */ = {
+			isa = PBXGroup;
+			children = (
+				07A5EC0B2A4543D600353669 /* Utils.swift */,
+			);
+			path = Datatypes;
+			sourceTree = "<group>";
+		};
+		07A5EC0F2A45477500353669 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				07A5EC102A45479100353669 /* RegistrationViewController.swift */,
+				07A5EC122A4547A300353669 /* RegisterView.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		07A5EC142A45480500353669 /* Progress Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				07A5EC152A45482200353669 /* Progress Indicator.swift */,
+			);
+			path = "Progress Indicator";
+			sourceTree = "<group>";
+		};
 		12FAF97B2A437E2700619DB9 /* EditProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +124,9 @@
 		347F7FA52A40BF1700D27B85 = {
 			isa = PBXGroup;
 			children = (
+				07A5EC142A45480500353669 /* Progress Indicator */,
+				07A5EC0F2A45477500353669 /* Registration */,
+				07A5EC0A2A4543BA00353669 /* Datatypes */,
 				347F7FB02A40BF1800D27B85 /* BudgetBuddy */,
 				347F7FAF2A40BF1800D27B85 /* Products */,
 			);
@@ -130,6 +168,7 @@
 				347F7FB52A40BF1800D27B85 /* ViewController.swift */,
 				347F7FEB2A44C02A00D27B85 /* TransactionsTableViewCell.swift */,
 				347F7FED2A44C03B00D27B85 /* FriendsTableViewCell.swift */,
+				07A5EC0D2A45473900353669 /* RightBarButtonHomeScreen.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -255,7 +294,9 @@
 				347F7FD32A40C09F00D27B85 /* AddFriendView.swift in Sources */,
 				347F7FD52A40C0B400D27B85 /* AddFriendController.swift in Sources */,
 				347F7FB62A40BF1800D27B85 /* ViewController.swift in Sources */,
+				07A5EC132A4547A300353669 /* RegisterView.swift in Sources */,
 				347F7FCE2A40C06500D27B85 /* EditBudgetController.swift in Sources */,
+				07A5EC162A45482200353669 /* Progress Indicator.swift in Sources */,
 				347F7FB22A40BF1800D27B85 /* AppDelegate.swift in Sources */,
 				347F7FEA2A44BF1C00D27B85 /* Configs.swift in Sources */,
 				347F7FEE2A44C03B00D27B85 /* FriendsTableViewCell.swift in Sources */,
@@ -263,8 +304,11 @@
 				347F7FDA2A40C0ED00D27B85 /* ShowProfileView.swift in Sources */,
 				12FAF97F2A437E5B00619DB9 /* EditProfileViewController.swift in Sources */,
 				347F7FD82A40C0DC00D27B85 /* ShowProfileController.swift in Sources */,
+				07A5EC0C2A4543D600353669 /* Utils.swift in Sources */,
 				347F7FD02A40C07600D27B85 /* EditBudgetView.swift in Sources */,
 				347F7FB42A40BF1800D27B85 /* SceneDelegate.swift in Sources */,
+				07A5EC112A45479100353669 /* RegistrationViewController.swift in Sources */,
+				07A5EC0E2A45473900353669 /* RightBarButtonHomeScreen.swift in Sources */,
 				347F7FCB2A40C01F00D27B85 /* AddTransactionViewController.swift in Sources */,
 				347F7FC62A40BFE400D27B85 /* HomeScreenView.swift in Sources */,
 				12FAF97D2A437E4600619DB9 /* EditProfileView.swift in Sources */,
