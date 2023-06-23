@@ -11,7 +11,6 @@ class ShowProfileView: UIView {
     
     var profilePic: UIImageView!
     var labelName: UILabel!
-    var labelUserName: UILabel!
     var labelEmail: UILabel!
 
     override init(frame: CGRect) {
@@ -21,7 +20,6 @@ class ShowProfileView: UIView {
         
         setupProfilePic()
         setupLabelName()
-        setupLabelUserName()
         setupLabelEmail()
         
         initConstraints()
@@ -41,10 +39,7 @@ class ShowProfileView: UIView {
             labelName.topAnchor.constraint(equalTo: profilePic.bottomAnchor, constant: 8),
             labelName.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             
-            labelUserName.topAnchor.constraint(equalTo: labelName.bottomAnchor, constant: 8),
-            labelUserName.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            
-            labelEmail.topAnchor.constraint(equalTo: labelUserName.bottomAnchor, constant: 8),
+            labelEmail.topAnchor.constraint(equalTo: labelName.bottomAnchor, constant: 8),
             labelEmail.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16)
         ])
     }
@@ -65,16 +60,7 @@ class ShowProfileView: UIView {
         labelName.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(labelName)
     }
-    
-    func setupLabelUserName() {
-        labelUserName = UILabel()
-        labelUserName.text = "Username"
-        labelUserName.textAlignment = .left
-        labelUserName.font = UIFont.systemFont(ofSize: 18)
-        labelUserName.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(labelUserName)
-    }
-    
+
     func setupLabelEmail() {
         labelEmail = UILabel()
         labelEmail.text = "Email"
