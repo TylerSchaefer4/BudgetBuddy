@@ -31,7 +31,21 @@ class ViewController: UIViewController {
             if user == nil{
                 //MARK: not signed in...
                 self.currentUser = nil
-                self.title = "Sign In"
+                self.title = "Sign in/Register"
+                self.homeScreen.buttonAddFriends.isHidden = true
+                self.homeScreen.buttonAddFriends.isEnabled = false
+                self.homeScreen.buttonAddTransaction.isHidden = true
+                self.homeScreen.buttonAddTransaction.isEnabled = false
+                self.homeScreen.buttonEditBudget.isHidden = true
+                self.homeScreen.buttonEditBudget.isEnabled = false
+                
+                self.homeScreen.labelAdditionalExpenses.text = ""
+                self.homeScreen.labelTotalAmountSpent.text = ""
+                self.homeScreen.labelBudgetStatus.text = ""
+                self.homeScreen.labelBudgetLeaderBoard.text = ""
+                self.homeScreen.labelExpectedExpenses.text = ""
+                self.homeScreen.labelRecentTransactions.text = "Access your Budget Buddy!"
+                self.homeScreen.labelThisWeeksBudget.text = ""
                 
                 //MARK: Reset tableViews...
                 self.transactions.removeAll()
@@ -47,6 +61,22 @@ class ViewController: UIViewController {
                 self.currentUser = user
                 self.title = "Welcome \(user?.displayName ?? "Anonymous")!"
                 
+                self.homeScreen.buttonAddFriends.isHidden = false
+                self.homeScreen.buttonAddFriends.isEnabled = true
+                self.homeScreen.buttonAddTransaction.isHidden = false
+                self.homeScreen.buttonAddTransaction.isEnabled = true
+                self.homeScreen.buttonEditBudget.isHidden = false
+                self.homeScreen.buttonEditBudget.isEnabled = true
+                
+                self.homeScreen.labelAdditionalExpenses.text = "Additional Expenses: $"
+                self.homeScreen.labelTotalAmountSpent.text = "Total amount spent: $"
+                self.homeScreen.labelBudgetStatus.text = "Budget Status"
+                self.homeScreen.labelBudgetLeaderBoard.text = "Budget Leaderboard"
+                self.homeScreen.labelExpectedExpenses.text = "Expected Expenses: $"
+                self.homeScreen.labelRecentTransactions.text = "Recent Transactions:"
+                self.homeScreen.labelThisWeeksBudget.text = "This weeks's budget: $"
+                
+                self.homeScreen.initConstraints()
                 //MARK: Logout bar button...
                 self.setupRightBarButton(isLoggedin: true)
                 
