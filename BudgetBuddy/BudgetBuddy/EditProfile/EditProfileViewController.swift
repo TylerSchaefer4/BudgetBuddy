@@ -8,6 +8,9 @@
 import UIKit
 import PhotosUI
 import FirebaseAuth
+import FirebaseStorage
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class EditProfileViewController: UIViewController {
     
@@ -16,6 +19,10 @@ class EditProfileViewController: UIViewController {
     var currentUser:FirebaseAuth.User!
     
     var profileImage:UIImage?
+    
+    let storage = Storage.storage()
+    
+    let database = Firestore.firestore()
     
     override func loadView() {
         view = editProfileScreen
@@ -30,12 +37,73 @@ class EditProfileViewController: UIViewController {
     }
     
     @objc func onSaveButtonTapped() {
-        if let image = editProfileScreen.buttonTakePhoto.currentImage, let name = editProfileScreen.nameTextField.text, let username = editProfileScreen.usernameTextField.text, let email = editProfileScreen.emailTextField.text {
-            
+        if let name = editProfileScreen.nameTextField.text, let username = editProfileScreen.usernameTextField.text, let email = editProfileScreen.emailTextField.text {
+            if self.profileImage != nil {
+                self.uploadToStorage(name: name, email: email, image: self.profileImage)
+            }
         }
         else {
             print("error")
         }
+    }
+    
+    func uploadToStorage(name:String, email: String, image: UIImage?) {
+        var profilePhotoURL:URL?
+                
+                //MARK: Upload the profile photo if there is any...
+        if let picture = image{
+            if let jpegData = picture.jpegData(compressionQuality: 80){
+                let storageRef = storage.reference()
+                let imagesRepo = storageRef.child("imagesUsers")
+                let imageRef = imagesRepo.child("\(NSUUID().uuidString).jpg")
+                        
+                let uploadTask = imageRef.putData(jpegData, completion: {(metadata, error) in
+                    if error == nil{
+                        imageRef.downloadURL(completion: {(url, error) in
+                            if error == nil{
+                                profilePhotoURL = url
+                                self.modifyFirebaseProfile(name: name, email: email, photoURL: profilePhotoURL)
+                            }
+                        })
+                    }
+                })
+            }
+        }else{
+            modifyFirebaseProfile(name: name, email: email, photoURL: profilePhotoURL)
+        }
+    }
+    
+    func modifyFirebaseProfile(name: String, email: String, photoURL: URL?){
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = name
+        changeRequest?.photoURL = photoURL
+    
+        print("\(photoURL)")
+        changeRequest?.commitChanges(completion: {(error) in
+            if error != nil{
+                print("Error occured: \(String(describing: error))")
+            }else{
+                Auth.auth().currentUser?.updateEmail(to: email) {error in
+                    if let error = error {
+                        print("failed to update email")
+                    } else {
+                        self.updateFirestore(name: name, email: email, photoURL: photoURL)
+                    }
+                }
+            }
+        })
+    }
+    
+    func updateFirestore(name: String, email: String, photoURL: URL?) {
+        database.collection("users").document(email).setData([
+            "name": name,
+            "email": email,
+            "photoURL": photoURL
+        ], completion: {(error) in
+            if error == nil {
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
     }
     
     func getMenuImagePicker() -> UIMenu{
@@ -47,7 +115,6 @@ class EditProfileViewController: UIViewController {
                 self.pickPhotoFromGallery()
             })
         ]
-            
         return UIMenu(title: "Select source", children: menuItems)
     }
     

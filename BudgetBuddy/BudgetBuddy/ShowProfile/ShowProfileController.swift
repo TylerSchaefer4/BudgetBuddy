@@ -7,6 +7,8 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
+import FirebaseStorage
 
 class ShowProfileController: UIViewController {
     
@@ -22,9 +24,22 @@ class ShowProfileController: UIViewController {
         super.viewDidLoad()
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(onEditButtonTapped))
+        
+        self.getUserInformation()
+    }
+    
+    func getUserInformation() {
+        self.showProfile.labelEmail.text = self.currentUser.email
+        self.showProfile.labelName.text = self.currentUser.displayName
+        
+        if let url = self.currentUser.photoURL {
+            self.showProfile.profilePic.loadRemoteImage(from: url)
+        }
     }
     
     @objc func onEditButtonTapped() {
-        
+        let editScreen = EditProfileViewController()
+        editScreen.currentUser = self.currentUser
+        navigationController?.pushViewController(editScreen, animated: true)
     }
 }
