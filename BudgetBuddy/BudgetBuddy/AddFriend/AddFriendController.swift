@@ -6,24 +6,82 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class AddFriendController: UIViewController {
+    
+    let addFriendView = AddFriendView()
+    
+    var currentUser:FirebaseAuth.User!
+    
+    let database = Firestore.firestore()
+    
+    override func loadView() {
+        view = addFriendView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.addFriendView.addFriendButton.addTarget(self, action: #selector(onAddFriendButtonTapped), for: .touchUpInside)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func onAddFriendButtonTapped() {
+        if let email = addFriendView.emailTextField.text {
+            self.addFriend(email: email)
+        }
+        else {
+            print("error unwrapping email")
+        }
     }
-    */
-
+    
+    func addFriend(email: String) {
+        database.collection("users").document(email).getDocument { (document, error) in
+            if let error = error {
+                print("error retrieving document")
+                return
+            }
+            
+            guard let document = document, document.exists else {
+                print("document doesn't exist")
+                return
+            }
+            
+            do {
+                let friend = document.data(as: Friend.self)
+                
+                if let friend = friend {
+                    self.addFriendToCollection(friend: friend)
+                }
+            }
+            catch {
+                print("error decoding document")
+            }
+        }
+    }
+    
+    func addFriendToCollection(friend: Friend) {
+        database.collection("users").document(self.currentUser.email).collection("friends").getDocument { (document, error) in
+            if let error = error {
+                print("error retrieving document")
+            }
+            
+            if document.exists {
+                print("friend is already added")
+            }
+            else {
+                database.collection("users").document(self.currentUser.email).collection("friends").addDocument(data: [
+                    "name" : friend.name,
+                    "email": friend.email
+                    "photoURL": friend.photoURL
+                ], completion: {(error) in
+                    if error = nil {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                })
+            }
+        }
+    }
+    
 }
