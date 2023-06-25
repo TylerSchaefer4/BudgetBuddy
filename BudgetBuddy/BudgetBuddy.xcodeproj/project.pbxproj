@@ -11,7 +11,6 @@
 		12FAF97F2A437E5B00619DB9 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FAF97E2A437E5B00619DB9 /* EditProfileViewController.swift */; };
 		347F7FB22A40BF1800D27B85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FB12A40BF1800D27B85 /* AppDelegate.swift */; };
 		347F7FB42A40BF1800D27B85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FB32A40BF1800D27B85 /* SceneDelegate.swift */; };
-		347F7FB62A40BF1800D27B85 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FB52A40BF1800D27B85 /* ViewController.swift */; };
 		347F7FB92A40BF1800D27B85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 347F7FB72A40BF1800D27B85 /* Main.storyboard */; };
 		347F7FBB2A40BF1900D27B85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 347F7FBA2A40BF1900D27B85 /* Assets.xcassets */; };
 		347F7FBE2A40BF1900D27B85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 347F7FBC2A40BF1900D27B85 /* LaunchScreen.storyboard */; };
@@ -37,6 +36,14 @@
 		347F7FF32A4507CF00D27B85 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FF22A4507CF00D27B85 /* Transaction.swift */; };
 		347F7FF52A45091600D27B85 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FF42A45091600D27B85 /* Friend.swift */; };
 		347F80062A48F00400D27B85 /* ShowErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F80052A48F00400D27B85 /* ShowErrorAlert.swift */; };
+		347F800D2A4900C100D27B85 /* RegisterFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F80082A4900C100D27B85 /* RegisterFirebaseManager.swift */; };
+		347F800E2A4900C100D27B85 /* RegisterProgressIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F80092A4900C100D27B85 /* RegisterProgressIndicatorManager.swift */; };
+		347F800F2A4900C100D27B85 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F800B2A4900C100D27B85 /* RegisterView.swift */; };
+		347F80102A4900C100D27B85 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F800C2A4900C100D27B85 /* RegisterViewController.swift */; };
+		347F80142A4900D600D27B85 /* ProgressSpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F80122A4900D600D27B85 /* ProgressSpinnerViewController.swift */; };
+		347F80152A4900D600D27B85 /* ProgressSpinnerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F80132A4900D600D27B85 /* ProgressSpinnerDelegate.swift */; };
+		347F80192A4901DC00D27B85 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F80182A4901DB00D27B85 /* ViewController.swift */; };
+		347F801B2A49021600D27B85 /* RightBarButtonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F801A2A49021600D27B85 /* RightBarButtonManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +52,6 @@
 		347F7FAE2A40BF1800D27B85 /* BudgetBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		347F7FB12A40BF1800D27B85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		347F7FB32A40BF1800D27B85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		347F7FB52A40BF1800D27B85 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		347F7FB82A40BF1800D27B85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		347F7FBA2A40BF1900D27B85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		347F7FBD2A40BF1900D27B85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -67,6 +73,14 @@
 		347F7FF22A4507CF00D27B85 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		347F7FF42A45091600D27B85 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		347F80052A48F00400D27B85 /* ShowErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowErrorAlert.swift; sourceTree = "<group>"; };
+		347F80082A4900C100D27B85 /* RegisterFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterFirebaseManager.swift; sourceTree = "<group>"; };
+		347F80092A4900C100D27B85 /* RegisterProgressIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterProgressIndicatorManager.swift; sourceTree = "<group>"; };
+		347F800B2A4900C100D27B85 /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		347F800C2A4900C100D27B85 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		347F80122A4900D600D27B85 /* ProgressSpinnerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressSpinnerViewController.swift; sourceTree = "<group>"; };
+		347F80132A4900D600D27B85 /* ProgressSpinnerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressSpinnerDelegate.swift; sourceTree = "<group>"; };
+		347F80182A4901DB00D27B85 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		347F801A2A49021600D27B85 /* RightBarButtonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightBarButtonManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +135,8 @@
 				347F7FD62A40C0B700D27B85 /* AddFriend */,
 				347F7FDB2A40C0F200D27B85 /* ShowProfile */,
 				347F7FB12A40BF1800D27B85 /* AppDelegate.swift */,
+				347F80072A4900C100D27B85 /* Register Screen */,
+				347F80112A4900D600D27B85 /* ProgressIndicator */,
 				347F7FB32A40BF1800D27B85 /* SceneDelegate.swift */,
 				347F7FB72A40BF1800D27B85 /* Main.storyboard */,
 				347F7FBA2A40BF1900D27B85 /* Assets.xcassets */,
@@ -136,8 +152,9 @@
 			isa = PBXGroup;
 			children = (
 				347F7FC52A40BFE400D27B85 /* HomeScreenView.swift */,
-				347F7FB52A40BF1800D27B85 /* ViewController.swift */,
 				347F7FEB2A44C02A00D27B85 /* TransactionsTableViewCell.swift */,
+				347F80182A4901DB00D27B85 /* ViewController.swift */,
+				347F801A2A49021600D27B85 /* RightBarButtonManager.swift */,
 				347F7FED2A44C03B00D27B85 /* FriendsTableViewCell.swift */,
 			);
 			path = HomeScreen;
@@ -188,6 +205,34 @@
 				347F80052A48F00400D27B85 /* ShowErrorAlert.swift */,
 			);
 			path = DataModels;
+			sourceTree = "<group>";
+		};
+		347F80072A4900C100D27B85 /* Register Screen */ = {
+			isa = PBXGroup;
+			children = (
+				347F80082A4900C100D27B85 /* RegisterFirebaseManager.swift */,
+				347F80092A4900C100D27B85 /* RegisterProgressIndicatorManager.swift */,
+				347F800A2A4900C100D27B85 /* Views */,
+				347F800C2A4900C100D27B85 /* RegisterViewController.swift */,
+			);
+			path = "Register Screen";
+			sourceTree = "<group>";
+		};
+		347F800A2A4900C100D27B85 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				347F800B2A4900C100D27B85 /* RegisterView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		347F80112A4900D600D27B85 /* ProgressIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				347F80122A4900D600D27B85 /* ProgressSpinnerViewController.swift */,
+				347F80132A4900D600D27B85 /* ProgressSpinnerDelegate.swift */,
+			);
+			path = ProgressIndicator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,7 +319,8 @@
 			files = (
 				347F7FD32A40C09F00D27B85 /* AddFriendView.swift in Sources */,
 				347F7FD52A40C0B400D27B85 /* AddFriendController.swift in Sources */,
-				347F7FB62A40BF1800D27B85 /* ViewController.swift in Sources */,
+				347F800E2A4900C100D27B85 /* RegisterProgressIndicatorManager.swift in Sources */,
+				347F800D2A4900C100D27B85 /* RegisterFirebaseManager.swift in Sources */,
 				347F7FCE2A40C06500D27B85 /* EditBudgetController.swift in Sources */,
 				347F7FF12A4507B600D27B85 /* ImageViewUtils.swift in Sources */,
 				347F7FB22A40BF1800D27B85 /* AppDelegate.swift in Sources */,
@@ -286,12 +332,18 @@
 				12FAF97F2A437E5B00619DB9 /* EditProfileViewController.swift in Sources */,
 				347F7FF32A4507CF00D27B85 /* Transaction.swift in Sources */,
 				347F80062A48F00400D27B85 /* ShowErrorAlert.swift in Sources */,
+				347F80102A4900C100D27B85 /* RegisterViewController.swift in Sources */,
 				347F7FD82A40C0DC00D27B85 /* ShowProfileController.swift in Sources */,
 				347F7FD02A40C07600D27B85 /* EditBudgetView.swift in Sources */,
+				347F80142A4900D600D27B85 /* ProgressSpinnerViewController.swift in Sources */,
 				347F7FB42A40BF1800D27B85 /* SceneDelegate.swift in Sources */,
 				347F7FCB2A40C01F00D27B85 /* AddTransactionViewController.swift in Sources */,
+				347F80192A4901DC00D27B85 /* ViewController.swift in Sources */,
 				347F7FC62A40BFE400D27B85 /* HomeScreenView.swift in Sources */,
+				347F800F2A4900C100D27B85 /* RegisterView.swift in Sources */,
+				347F801B2A49021600D27B85 /* RightBarButtonManager.swift in Sources */,
 				12FAF97D2A437E4600619DB9 /* EditProfileView.swift in Sources */,
+				347F80152A4900D600D27B85 /* ProgressSpinnerDelegate.swift in Sources */,
 				347F7FC92A40C00E00D27B85 /* AddTransactionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
