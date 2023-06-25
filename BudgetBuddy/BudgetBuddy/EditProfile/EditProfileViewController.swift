@@ -46,6 +46,7 @@ class EditProfileViewController: UIViewController {
         }
         else {
             print("error")
+            showErrorAlert("No fields should be empty")
         }
     }
     
@@ -84,10 +85,12 @@ class EditProfileViewController: UIViewController {
         changeRequest?.commitChanges(completion: {(error) in
             if error != nil{
                 print("Error occured: \(String(describing: error))")
+                showErrorAlert("error")
             }else{
                 Auth.auth().currentUser?.updateEmail(to: email) {error in
                     if let error = error {
                         print("failed to update email")
+                        showErrorAlert("Failed to update email")
                     } else {
                         self.updateFirestore(name: name, email: email, photoURL: photoURL)
                     }
