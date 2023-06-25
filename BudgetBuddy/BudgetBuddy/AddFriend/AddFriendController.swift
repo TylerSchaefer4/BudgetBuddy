@@ -45,6 +45,7 @@ class AddFriendController: UIViewController {
             
             guard let document = document, document.exists else {
                 print("document doesn't exist")
+                showErrorAlert("Incorrect email")
                 return
             }
             
@@ -69,6 +70,7 @@ class AddFriendController: UIViewController {
             
             if document.exists {
                 print("friend is already added")
+                self.showErrorAlert("\(friend.name) is already your friend")
             }
             else {
                 database.collection("users").document(self.currentUser.email).collection("friends").addDocument(data: [

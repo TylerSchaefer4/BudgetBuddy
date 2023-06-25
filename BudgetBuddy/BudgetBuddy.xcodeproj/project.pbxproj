@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		126D804B2A48B08400471393 /* ShowErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D804A2A48B08300471393 /* ShowErrorAlert.swift */; };
 		12FAF97D2A437E4600619DB9 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FAF97C2A437E4600619DB9 /* EditProfileView.swift */; };
 		12FAF97F2A437E5B00619DB9 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FAF97E2A437E5B00619DB9 /* EditProfileViewController.swift */; };
 		347F7FB22A40BF1800D27B85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FB12A40BF1800D27B85 /* AppDelegate.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		126D804A2A48B08300471393 /* ShowErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowErrorAlert.swift; sourceTree = "<group>"; };
 		12FAF97C2A437E4600619DB9 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		12FAF97E2A437E5B00619DB9 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		347F7FAE2A40BF1800D27B85 /* BudgetBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +185,7 @@
 				347F7FF02A4507B600D27B85 /* ImageViewUtils.swift */,
 				347F7FF22A4507CF00D27B85 /* Transaction.swift */,
 				347F7FF42A45091600D27B85 /* Friend.swift */,
+				126D804A2A48B08300471393 /* ShowErrorAlert.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				347F7FDA2A40C0ED00D27B85 /* ShowProfileView.swift in Sources */,
 				12FAF97F2A437E5B00619DB9 /* EditProfileViewController.swift in Sources */,
 				347F7FF32A4507CF00D27B85 /* Transaction.swift in Sources */,
+				126D804B2A48B08400471393 /* ShowErrorAlert.swift in Sources */,
 				347F7FD82A40C0DC00D27B85 /* ShowProfileController.swift in Sources */,
 				347F7FD02A40C07600D27B85 /* EditBudgetView.swift in Sources */,
 				347F7FB42A40BF1800D27B85 /* SceneDelegate.swift in Sources */,
