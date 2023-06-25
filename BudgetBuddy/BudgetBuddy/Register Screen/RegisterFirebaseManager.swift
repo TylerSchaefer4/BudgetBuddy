@@ -7,6 +7,9 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseAuth
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 extension RegisterViewController{
     
@@ -18,16 +21,37 @@ extension RegisterViewController{
            let email = registerView.textFieldEmail.text,
            let password = registerView.textFieldPassword.text{
             //Validations....
-            Auth.auth().createUser(withEmail: email, password: password, completion: {result, error in
+            Auth.auth().createUser(withEmail: email, password: password, completion: { [self]result, error in
                 if error == nil{
                     //MARK: the user creation is successful...
                     self.setNameOfTheUserInFirebaseAuth(name: name)
-                }else{
+                    
+                    let user = User(name: name, email: email, budget: 100, spent: 0, expectedExpenses: 100)
+                    
+                    self.saveUserToFirestore(user: user)
+                                    
+                                    }
+                    else{
                     //MARK: there is a error creating the user...
                     print(error)
                 }
             })
         }
+    }
+    
+    func saveUserToFirestore(user: User) {
+        let collectionUsers = database
+                        .collection("users")
+                    do{
+                        try collectionUsers.addDocument(from: user, completion: {(error) in
+                            if error == nil{
+//                                self.navigationController?.popViewController(animated: true)
+                            }
+                        })
+                    }catch{
+                        print("Error adding document!")
+                    }
+
     }
     
     //MARK: We set the name of the user after we create the account...

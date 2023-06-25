@@ -44,6 +44,7 @@
 		347F80152A4900D600D27B85 /* ProgressSpinnerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F80132A4900D600D27B85 /* ProgressSpinnerDelegate.swift */; };
 		347F80192A4901DC00D27B85 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F80182A4901DB00D27B85 /* ViewController.swift */; };
 		347F801B2A49021600D27B85 /* RightBarButtonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F801A2A49021600D27B85 /* RightBarButtonManager.swift */; };
+		3E6B1D0B2A490703003EB214 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B1D0A2A490703003EB214 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		347F80132A4900D600D27B85 /* ProgressSpinnerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressSpinnerDelegate.swift; sourceTree = "<group>"; };
 		347F80182A4901DB00D27B85 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		347F801A2A49021600D27B85 /* RightBarButtonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightBarButtonManager.swift; sourceTree = "<group>"; };
+		3E6B1D0A2A490703003EB214 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 				347F7FF22A4507CF00D27B85 /* Transaction.swift */,
 				347F7FF42A45091600D27B85 /* Friend.swift */,
 				347F80052A48F00400D27B85 /* ShowErrorAlert.swift */,
+				3E6B1D0A2A490703003EB214 /* User.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				347F7FF12A4507B600D27B85 /* ImageViewUtils.swift in Sources */,
 				347F7FB22A40BF1800D27B85 /* AppDelegate.swift in Sources */,
 				347F7FEA2A44BF1C00D27B85 /* Configs.swift in Sources */,
+				3E6B1D0B2A490703003EB214 /* User.swift in Sources */,
 				347F7FF52A45091600D27B85 /* Friend.swift in Sources */,
 				347F7FEE2A44C03B00D27B85 /* FriendsTableViewCell.swift in Sources */,
 				347F7FEC2A44C02A00D27B85 /* TransactionsTableViewCell.swift in Sources */,
