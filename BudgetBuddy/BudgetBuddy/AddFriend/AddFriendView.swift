@@ -23,6 +23,10 @@ class AddFriendView: UIView {
         initConstraints()
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func initConstraints() {
         NSLayoutConstraint.activate([
             emailTextField.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -49,7 +53,7 @@ class AddFriendView: UIView {
         addFriendButton.setTitle("Add Friend", for: .normal)
         addFriendButton.backgroundColor = .blue
         addFriendButton.tintColor = .white
-        addFriendButton.font = UIFont.systemFont(ofSize: 18)
+        addFriendButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         addFriendButton.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(addFriendButton)
     }

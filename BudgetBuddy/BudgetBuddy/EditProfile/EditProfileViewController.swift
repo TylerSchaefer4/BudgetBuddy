@@ -85,12 +85,12 @@ class EditProfileViewController: UIViewController {
         changeRequest?.commitChanges(completion: {(error) in
             if error != nil{
                 print("Error occured: \(String(describing: error))")
-                showErrorAlert("error")
+                self.showErrorAlert("error")
             }else{
                 Auth.auth().currentUser?.updateEmail(to: email) {error in
                     if let error = error {
                         print("failed to update email")
-                        showErrorAlert("Failed to update email")
+                        self.showErrorAlert("Failed to update email")
                     } else {
                         self.updateFirestore(name: name, email: email, photoURL: photoURL)
                     }
@@ -103,7 +103,7 @@ class EditProfileViewController: UIViewController {
         database.collection("users").document(email).setData([
             "name": name,
             "email": email,
-            "photoURL": photoURL
+            "photoURL": photoURL?.absoluteString
         ], completion: {(error) in
             if error == nil {
                 self.navigationController?.popViewController(animated: true)
