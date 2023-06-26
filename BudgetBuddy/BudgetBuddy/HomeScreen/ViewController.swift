@@ -128,8 +128,18 @@ class ViewController: UIViewController {
         let profileButton = UIBarButtonItem(image: UIImage(systemName: "person.fill"), style: .plain, target: self, action: #selector(onProfileButtonTapped))
         
         navigationItem.rightBarButtonItem = profileButton
+        
+        
+        self.homeScreen.buttonAddTransaction.addTarget(self, action: #selector(onButtonAddTransaction), for: .touchUpInside)
+
         hideKeyboardOnTapOutside()
         
+    }
+    
+    @objc func onButtonAddTransaction() {
+        let addTransactionViewController = AddTransactionViewController()
+        //showProfileController.currentUser =
+        navigationController?.pushViewController(addTransactionViewController, animated: true)
     }
     
     @objc func onProfileButtonTapped() {
