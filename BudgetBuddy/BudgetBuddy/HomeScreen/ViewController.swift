@@ -17,12 +17,17 @@ class ViewController: UIViewController {
     
     let database = Firestore.firestore()
     
+    var transactions = [Transaction]()
+
+    
     override func loadView() {
         view = homeScreen
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        
         
         //MARK: handling if the Authentication state is changed (sign in, sign out, register)...
         handleAuth = Auth.auth().addStateDidChangeListener{ auth, user in
@@ -52,7 +57,7 @@ class ViewController: UIViewController {
                 
                 let usersCollection = self.database.collection("users")
                 let email = self.currentUser?.email
-                print(email)
+                //print(email)
 //                // set values on home screen
                 usersCollection.whereField("email", isEqualTo: self.currentUser?.email)
                     .getDocuments { querySnapshot, error in
@@ -90,6 +95,26 @@ class ViewController: UIViewController {
                                 self.homeScreen.labelExpectedExpenses.text = "Expected Expenses: $" + String(expectedExpenses)
                             }
                         }
+                        
+                        
+                        self.database.collection("users")
+                            .document((self.currentUser?.email)!)
+                            .collection("transactions")
+                            .addSnapshotListener(includeMetadataChanges: false, listener: { querySnapshot, error in
+                                if let documents = querySnapshot?.documents {
+                                    self.transactions.removeAll()
+                                    for document in documents {
+                                        do {
+                                            let transaction  = try document.data(as: Transaction.self)
+                                            self.transactions.append(transaction)
+                                        } catch {
+                                            print(error)
+                                        }
+                                    }
+                                    self.homeScreen.tableViewRecentTransactions.reloadData()
+                                }
+                            })
+
                     }
 
 
@@ -126,10 +151,15 @@ class ViewController: UIViewController {
         title = "Financial Summary"
         
         let profileButton = UIBarButtonItem(image: UIImage(systemName: "person.fill"), style: .plain, target: self, action: #selector(onProfileButtonTapped))
+
+            navigationItem.rightBarButtonItem = profileButton
+
         
-        navigationItem.rightBarButtonItem = profileButton
-        
-        
+        homeScreen.tableViewRecentTransactions.delegate = self
+        homeScreen.tableViewRecentTransactions.dataSource = self
+
+        homeScreen.tableViewRecentTransactions.register(TransactionsTableViewCell.self, forCellReuseIdentifier: "TransactionsTableViewCell")
+
         self.homeScreen.buttonAddTransaction.addTarget(self, action: #selector(onButtonAddTransaction), for: .touchUpInside)
         
         self.homeScreen.buttonEditBudget.addTarget(self, action: #selector(onButtonEditBudget), for: .touchUpInside)
@@ -174,4 +204,28 @@ class ViewController: UIViewController {
             view.endEditing(true)
         }
 }
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return transactions.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Configs.tableViewTransactionsID, for: indexPath) as! TransactionsTableViewCell
+        let transaction = transactions[indexPath.row]
+        cell.labelEmail.text = "YO"
+        
+        
+//        cell.nameLabel.text = transaction.name
+//        cell.amountLabel.text = "$\(transaction.amount)"
+        
+        return cell
+    }
+}
+
 
