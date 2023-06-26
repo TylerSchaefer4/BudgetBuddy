@@ -9,7 +9,7 @@ import UIKit
 
 class ShowProfileView: UIView {
     
-    var profilePic: UIImageView!
+    //var profilePic: UIImageView!
     var labelName: UILabel!
     var labelEmail: UILabel!
 
@@ -18,7 +18,7 @@ class ShowProfileView: UIView {
         
         self.backgroundColor = .white
         
-        setupProfilePic()
+        //setupProfilePic()
         setupLabelName()
         setupLabelEmail()
         
@@ -31,12 +31,12 @@ class ShowProfileView: UIView {
     
     func initConstraints() {
         NSLayoutConstraint.activate([
-            profilePic.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
-            profilePic.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            profilePic.heightAnchor.constraint(equalToConstant: 100),
-            profilePic.widthAnchor.constraint(equalToConstant: 100),
+//            profilePic.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
+//            profilePic.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+//            profilePic.heightAnchor.constraint(equalToConstant: 100),
+//            profilePic.widthAnchor.constraint(equalToConstant: 100),
             
-            labelName.topAnchor.constraint(equalTo: profilePic.bottomAnchor, constant: 8),
+            labelName.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
             labelName.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             
             labelEmail.topAnchor.constraint(equalTo: labelName.bottomAnchor, constant: 8),
@@ -44,13 +44,13 @@ class ShowProfileView: UIView {
         ])
     }
     
-    func setupProfilePic() {
-        profilePic = UIImageView()
-        profilePic.image = UIImage(systemName: "person.fill")
-        profilePic.tintColor = .black
-        profilePic.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(profilePic)
-    }
+//    func setupProfilePic() {
+//        profilePic = UIImageView()
+//        profilePic.image = UIImage(systemName: "person.fill")
+//        profilePic.tintColor = .black
+//        profilePic.translatesAutoresizingMaskIntoConstraints = false
+//        self.addSubview(profilePic)
+//    }
     
     func setupLabelName() {
         labelName = UILabel()

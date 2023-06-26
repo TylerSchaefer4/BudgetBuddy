@@ -34,9 +34,9 @@ class ShowProfileController: UIViewController {
         self.showProfile.labelEmail.text = self.currentUser.email
         self.showProfile.labelName.text = self.currentUser.displayName
         
-        if let url = self.currentUser.photoURL {
-            self.showProfile.profilePic.loadRemoteImage(from: url)
-        }
+//        if let url = self.currentUser.photoURL {
+//            self.showProfile.profilePic.loadRemoteImage(from: url)
+//        }
     }
     
     @objc func onEditButtonTapped() {
