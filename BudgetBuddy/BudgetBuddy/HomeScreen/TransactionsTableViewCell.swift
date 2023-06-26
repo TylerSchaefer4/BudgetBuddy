@@ -10,34 +10,25 @@ import UIKit
 class TransactionsTableViewCell: UITableViewCell {
 
     var wrapperCellView: UIView!
-    var labelName: UILabel!
-    var labelEmail: UILabel!
-    var labelPhone: UILabel!
-    var profilePic: UIImageView!
+    var labelAmount: UILabel!
+    var labelNameOfPlace: UILabel!
+    var labelDescription: UILabel!
+    var labelLocation: UILabel!
+    var timeStamp: Date!
+    var imageUrl: UIImageView!
+    
 
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupWrapperCellView()
-        setupLabelName()
-        setupLabelEmail()
-        setupLabelPhone()
-        
-        setupProfilePic()
+        setuplabelAmount()
+        setuplabelNameOfPlace()
+        setuplabelDescription()
+        setuplabelLocation()
         
         initConstraints()
-    }
-    
-    func setupProfilePic(){
-        profilePic = UIImageView()
-        profilePic.image = UIImage(systemName: "person.circle")?.withRenderingMode(.alwaysOriginal)
-        profilePic.contentMode = .scaleToFill
-        profilePic.clipsToBounds = true
-        profilePic.layer.masksToBounds = true
-        profilePic.layer.cornerRadius = 16.0
-        profilePic.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(profilePic)
     }
     
     required init?(coder: NSCoder) {
@@ -45,7 +36,7 @@ class TransactionsTableViewCell: UITableViewCell {
     }
     
     func setupWrapperCellView(){
-        wrapperCellView = UITableViewCell()
+        wrapperCellView = UIView()
         
         //working with the shadows and colors...
         wrapperCellView.backgroundColor = .white
@@ -58,27 +49,34 @@ class TransactionsTableViewCell: UITableViewCell {
         self.addSubview(wrapperCellView)
     }
     
-    func setupLabelName(){
-        labelName = UILabel()
-        labelName.font = UIFont.boldSystemFont(ofSize: 20)
-        labelName.translatesAutoresizingMaskIntoConstraints = false
-        wrapperCellView.addSubview(labelName)
+    func setuplabelAmount(){
+        labelAmount = UILabel()
+        labelAmount.font = UIFont.boldSystemFont(ofSize: 20)
+        labelAmount.translatesAutoresizingMaskIntoConstraints = false
+        wrapperCellView.addSubview(labelAmount)
     }
     
-    func setupLabelEmail(){
-        labelEmail = UILabel()
-        labelEmail.font = UIFont.boldSystemFont(ofSize: 14)
-        labelEmail.translatesAutoresizingMaskIntoConstraints = false
-        wrapperCellView.addSubview(labelEmail)
+    func setuplabelNameOfPlace() {
+        labelNameOfPlace = UILabel()
+        labelNameOfPlace.font = UIFont.boldSystemFont(ofSize: 16)
+        labelNameOfPlace.translatesAutoresizingMaskIntoConstraints = false
+        wrapperCellView.addSubview(labelNameOfPlace)
     }
-    
-    func setupLabelPhone(){
-        labelPhone = UILabel()
-        labelPhone.font = UIFont.boldSystemFont(ofSize: 14)
-        labelPhone.translatesAutoresizingMaskIntoConstraints = false
-        wrapperCellView.addSubview(labelPhone)
+
+    func setuplabelDescription() {
+        labelDescription = UILabel()
+        labelDescription.font = UIFont.systemFont(ofSize: 14)
+        labelDescription.translatesAutoresizingMaskIntoConstraints = false
+        wrapperCellView.addSubview(labelDescription)
     }
-    
+
+    func setuplabelLocation() {
+        labelLocation = UILabel()
+        labelLocation.font = UIFont.systemFont(ofSize: 14)
+        labelLocation.translatesAutoresizingMaskIntoConstraints = false
+        wrapperCellView.addSubview(labelLocation)
+    }
+
     func initConstraints(){
         NSLayoutConstraint.activate([
             wrapperCellView.topAnchor.constraint(equalTo: self.topAnchor,constant: 10),
@@ -86,34 +84,21 @@ class TransactionsTableViewCell: UITableViewCell {
             wrapperCellView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
             wrapperCellView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             
+            labelAmount.topAnchor.constraint(equalTo: wrapperCellView.topAnchor, constant: 10),
+            labelAmount.leadingAnchor.constraint(equalTo: wrapperCellView.leadingAnchor, constant: 10),
             
-            profilePic.widthAnchor.constraint(equalToConstant: 32),
-            profilePic.heightAnchor.constraint(equalToConstant: 32),
-            profilePic.topAnchor.constraint(equalTo: wrapperCellView.safeAreaLayoutGuide.topAnchor, constant: 8),
-            profilePic.leadingAnchor.constraint(equalTo: wrapperCellView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            labelNameOfPlace.topAnchor.constraint(equalTo: labelAmount.bottomAnchor, constant: 5),
+            labelNameOfPlace.leadingAnchor.constraint(equalTo: labelAmount.leadingAnchor),
             
-            labelName.topAnchor.constraint(equalTo: profilePic.topAnchor),
-            labelName.bottomAnchor.constraint(equalTo: profilePic.bottomAnchor),
-            labelName.leadingAnchor.constraint(equalTo: profilePic.trailingAnchor, constant: 8),
+            labelDescription.topAnchor.constraint(equalTo: labelNameOfPlace.bottomAnchor, constant: 5),
+            labelDescription.leadingAnchor.constraint(equalTo: labelAmount.leadingAnchor),
             
-//            labelName.topAnchor.constraint(equalTo: wrapperCellView.topAnchor, constant: 8),
-//            labelName.leadingAnchor.constraint(equalTo: wrapperCellView.leadingAnchor, constant: 16),
-//            labelName.heightAnchor.constraint(equalToConstant: 20),
-//            labelName.widthAnchor.constraint(lessThanOrEqualTo: wrapperCellView.widthAnchor),
-            
-            labelEmail.topAnchor.constraint(equalTo: labelName.bottomAnchor, constant: 2),
-            labelEmail.leadingAnchor.constraint(equalTo: labelName.leadingAnchor),
-            labelEmail.heightAnchor.constraint(equalToConstant: 16),
-            labelEmail.widthAnchor.constraint(lessThanOrEqualTo: labelName.widthAnchor),
-            
-            labelPhone.topAnchor.constraint(equalTo: labelEmail.bottomAnchor, constant: 2),
-            labelPhone.leadingAnchor.constraint(equalTo: labelEmail.leadingAnchor),
-            labelPhone.heightAnchor.constraint(equalToConstant: 16),
-            labelPhone.widthAnchor.constraint(lessThanOrEqualTo: labelName.widthAnchor),
-            
-            wrapperCellView.heightAnchor.constraint(equalToConstant: 72)
+            labelLocation.topAnchor.constraint(equalTo: labelDescription.bottomAnchor, constant: 5),
+            labelLocation.leadingAnchor.constraint(equalTo: labelAmount.leadingAnchor),
+            labelLocation.bottomAnchor.constraint(equalTo: wrapperCellView.bottomAnchor, constant: -10),
         ])
     }
+
 
     override func awakeFromNib() {
         super.awakeFromNib()

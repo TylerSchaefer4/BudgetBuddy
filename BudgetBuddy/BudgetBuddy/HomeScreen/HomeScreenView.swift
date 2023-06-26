@@ -19,7 +19,7 @@ class HomeScreenView: UIView {
     var labelThisWeeksBudget: UILabel!
     var labelTotalAmountSpent: UILabel!
     var labelExpectedExpenses: UILabel!
-    var labelAdditionalExpenses: UILabel!
+    //var labelAdditionalExpenses: UILabel!
     var buttonEditBudget: UIButton!
     var labelBudgetLeaderBoard: UILabel!
     var tableViewBudgetLeaderBoard: UITableView!
@@ -37,7 +37,7 @@ class HomeScreenView: UIView {
         setuplabelThisWeeksBudget()
         setuplabelTotalAmountSpent()
         setuplabelExpectedExpenses()
-        setuplabelAdditionalExpenses()
+        //setuplabelAdditionalExpenses()
         setupbuttonEditBudget()
         setuplabelBudgetLeaderBoard()
         setuptableViewBudgetLeaderBoard()
@@ -63,7 +63,7 @@ class HomeScreenView: UIView {
 
     func setuptableViewRecentTransactions() {
         tableViewRecentTransactions = UITableView()
-        tableViewRecentTransactions.register(TransactionsTableViewCell.self, forCellReuseIdentifier: Configs.tableViewTransactionsID)
+        tableViewRecentTransactions.register(TransactionsTableViewCell.self, forCellReuseIdentifier: "transactions")
         tableViewRecentTransactions.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(tableViewRecentTransactions)
     }
@@ -106,14 +106,14 @@ class HomeScreenView: UIView {
         labelExpectedExpenses.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(labelExpectedExpenses)
     }
-    func setuplabelAdditionalExpenses(){
-        labelAdditionalExpenses = UILabel()
-        labelAdditionalExpenses.text = "Additional Expenses: $"
-
-        labelAdditionalExpenses.font = .boldSystemFont(ofSize: 14)
-        labelAdditionalExpenses.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.addSubview(labelAdditionalExpenses)
-    }
+//    func setuplabelAdditionalExpenses(){
+//        labelAdditionalExpenses = UILabel()
+//        labelAdditionalExpenses.text = "Additional Expenses: $"
+//
+//        labelAdditionalExpenses.font = .boldSystemFont(ofSize: 14)
+//        labelAdditionalExpenses.translatesAutoresizingMaskIntoConstraints = false
+//        scrollView.addSubview(labelAdditionalExpenses)
+//    }
     func setupbuttonEditBudget(){
         buttonEditBudget = UIButton(type: .system)
         buttonEditBudget.setTitle("Edit", for: .normal)
@@ -173,10 +173,10 @@ class HomeScreenView: UIView {
                 labelExpectedExpenses.topAnchor.constraint(equalTo: labelTotalAmountSpent.bottomAnchor, constant: 8),
                 labelExpectedExpenses.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
                 
-                labelAdditionalExpenses.topAnchor.constraint(equalTo: labelExpectedExpenses.bottomAnchor, constant: 8),
-                labelAdditionalExpenses.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+//                labelAdditionalExpenses.topAnchor.constraint(equalTo: labelExpectedExpenses.bottomAnchor, constant: 8),
+//                labelAdditionalExpenses.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
                 
-                buttonEditBudget.topAnchor.constraint(equalTo: labelAdditionalExpenses.bottomAnchor, constant: 8),
+                buttonEditBudget.topAnchor.constraint(equalTo: labelExpectedExpenses.bottomAnchor, constant: 8),
                 buttonEditBudget.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
                 
                 labelBudgetLeaderBoard.topAnchor.constraint(equalTo: buttonEditBudget.bottomAnchor, constant: 16),
