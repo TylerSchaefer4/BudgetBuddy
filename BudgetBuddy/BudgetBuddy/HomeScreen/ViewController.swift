@@ -50,6 +50,52 @@ class ViewController: UIViewController {
                 //MARK: Logout bar button...
                 self.setupRightBarButton(isLoggedin: true)
                 
+                let usersCollection = self.database.collection("users")
+                let email = self.currentUser?.email
+                print(email)
+//                // set values on home screen
+                usersCollection.whereField("email", isEqualTo: self.currentUser?.email)
+                    .getDocuments { querySnapshot, error in
+                        if let error = error {
+                            print("Error querying documents: \(error)")
+                            return
+                        }
+                        
+                        guard let documents = querySnapshot?.documents else {
+                            print("No matching documents found")
+                            return
+                        }
+                        
+                        
+                        for document in documents {
+                            let user = document.data() // Access the user data as a dictionary
+                            print(user)
+                            
+                            // Access the specific fields
+                            if let name = user["name"] as? String,
+                               let budget = user["budget"] as? Int,
+                               let spent = user["spent"] as? Int,
+                               let expectedExpenses = user["expectedExpenses"] as? Int {
+                                // Create a User object or perform further operations with the data
+//                                let userObject = User(name: name, email: self.currentUser?.email! ?? "", budget: budget, spent: spent, expectedExpenses: expectedExpenses)
+//
+//                                // Access the user properties here
+//                                print("User name: \(userObject.name)")
+//                                print("User email: \(userObject.email)")
+//                                print("User budget: \(userObject.budget)")
+//                                print("User spent: \(userObject.spent)")
+//                                print("User expectedExpenses: \(userObject.expectedExpenses)")
+                                self.homeScreen.labelThisWeeksBudget.text = "This weeks's budget: $" + String(budget)
+                                self.homeScreen.labelTotalAmountSpent.text = "Total amount spent: $" + String(spent)
+                                self.homeScreen.labelExpectedExpenses.text = "Expected Expenses: $" + String(expectedExpenses)
+                            }
+                        }
+                    }
+
+
+
+//                homeScreen.labelThisWeeksBudget = 100
+                
                 //MARK: Observe Firestore database to display the contacts list...
                 self.database.collection("users")
                     .document((self.currentUser?.email)!)

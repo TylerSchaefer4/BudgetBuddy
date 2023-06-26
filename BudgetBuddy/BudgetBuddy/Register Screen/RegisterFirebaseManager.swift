@@ -26,7 +26,7 @@ extension RegisterViewController{
                     //MARK: the user creation is successful...
                     self.setNameOfTheUserInFirebaseAuth(name: name)
                     
-                    let user = User(name: name, email: email, budget: 100, spent: 0, expectedExpenses: 100)
+                    let user = User(name: name, email: email.lowercased(), budget: 100, spent: 0, expectedExpenses: 100)
                     
                     self.saveUserToFirestore(user: user)
                                     
