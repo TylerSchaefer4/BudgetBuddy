@@ -13,11 +13,19 @@ extension ViewController{
         if isLoggedin{
             //MARK: user is logged in...
             let barIcon = UIBarButtonItem(
-                image: UIImage(systemName: "rectangle.portrait.and.arrow.forward"),
+                image: UIImage(systemName: "person.fill"),
                 style: .plain,
                 target: self,
-                action: #selector(onLogOutBarButtonTapped)
+                action: #selector(onProfileButtonTapped)
             )
+            
+//            let profileButton = UIBarButtonItem(
+//                            image: UIImage(systemName: "circle.profile"),
+//                            style: .plain,
+//                            target: self,
+//                            action: #selector(onProfileButtonTapped)
+//            )
+                        
             let barText = UIBarButtonItem(
                 title: "Logout",
                 style: .plain,
@@ -25,7 +33,7 @@ extension ViewController{
                 action: #selector(onLogOutBarButtonTapped)
             )
             
-            navigationItem.rightBarButtonItems = [barIcon, barText]
+            navigationItem.rightBarButtonItems = [barText, barIcon]
             
         }else{
             //MARK: not logged in...

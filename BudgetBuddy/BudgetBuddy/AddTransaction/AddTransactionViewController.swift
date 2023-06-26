@@ -76,12 +76,6 @@ class AddTransactionViewController: UIViewController {
         present(photoPicker, animated: true, completion: nil)
     }
     
-    @objc func onRegisterTapped(){
-        //MARK: creating a new user on Firebase with photo...
-        //showActivityIndicator()
-       // uploadProfilePhotoToStorage()
-    }
-    
     @objc func onAddButtonTapped() {
         guard let amountString = addTransactionView.textFieldAmount.text,
               let amount = Int(amountString),
@@ -96,10 +90,12 @@ class AddTransactionViewController: UIViewController {
         let location = addTransactionView.textFieldLocation.text ?? ""
         let timestamp = Date()  // Current date and time
         
+
         guard let user = Auth.auth().currentUser else {
             print("No user is signed in.")
             return
         }
+
 
         // check if image was picked
         if let image = pickedImage {
@@ -124,7 +120,9 @@ class AddTransactionViewController: UIViewController {
 
     func saveTransactionToFirebase(user: FirebaseAuth.User, transaction: Transaction) {
         let db = Firestore.firestore()
-        let transactionRef = db.collection("users").document(user.uid).collection("transactions").document()
+        
+        let userEmail = user.email ?? ""
+        let transactionRef = db.collection("users").document(userEmail).collection("transactions").document()
         
         do {
             try transactionRef.setData(from: transaction)
