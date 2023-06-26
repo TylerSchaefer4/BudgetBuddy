@@ -9,4 +9,5 @@ import Foundation
 class Configs{
     static let tableViewTransactionsID = "tableViewTransactionsID"
     static let tableViewFriendsID = "tableViewFriendsID"
+    static let tableViewLeaderboardID = "tableViewLeaderboardID"
 }

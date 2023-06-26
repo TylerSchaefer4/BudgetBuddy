@@ -105,7 +105,7 @@ class EditProfileViewController: UIViewController {
             }else{
                 Auth.auth().currentUser?.updateEmail(to: email.lowercased()) {error in
                     if let error = error {
-                        print("failed to update email")
+                        print("Failed to update email:", error.localizedDescription)
                         self.showErrorAlert("Failed to update email")
                     } else {
                         self.updateFirestore(name: name, email: email, user: oldUserInfo)
@@ -124,7 +124,19 @@ class EditProfileViewController: UIViewController {
             "spent": user.spent
         ], completion: {(error) in
             if error == nil {
-                self.navigationController?.popViewController(animated: true)
+                //self.navigationController?.popToRootViewController(animated: true)
+                self.deleteOldUser(user: user)
+            }
+        })
+    }
+    
+    func deleteOldUser(user: User) {
+        database.collection("users").document(user.email.lowercased()).delete(completion: {(error) in
+            if let error = error {
+                self.showErrorAlert("could not remove previous instance of user")
+            }
+            else {
+                self.navigationController?.popToRootViewController(animated: true)
             }
         })
     }

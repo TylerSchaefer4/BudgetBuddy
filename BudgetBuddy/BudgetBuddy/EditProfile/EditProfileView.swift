@@ -16,6 +16,8 @@ class EditProfileView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        self.backgroundColor = .white
+        
 //        setupbuttonTakePhoto()
         setupNameTextField()
         setupEmailTextField()
@@ -30,7 +32,7 @@ class EditProfileView: UIView {
 //            buttonTakePhoto.heightAnchor.constraint(equalToConstant: 100),
 //            buttonTakePhoto.widthAnchor.constraint(equalToConstant: 100),
             
-            nameTextField.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,constant: 8),
+            nameTextField.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,constant: 8),
             nameTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             nameTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             
@@ -55,6 +57,7 @@ class EditProfileView: UIView {
     func setupNameTextField() {
         nameTextField = UITextField()
         nameTextField.textAlignment = .left
+        nameTextField.borderStyle = .roundedRect
         nameTextField.placeholder = "Name"
         nameTextField.font = UIFont.systemFont(ofSize: 14)
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -64,7 +67,8 @@ class EditProfileView: UIView {
     func setupEmailTextField() {
         emailTextField = UITextField()
         emailTextField.textAlignment = .left
-        emailTextField.placeholder = "Name"
+        emailTextField.borderStyle = .roundedRect
+        emailTextField.placeholder = "Email"
         emailTextField.font = UIFont.systemFont(ofSize: 14)
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(emailTextField)

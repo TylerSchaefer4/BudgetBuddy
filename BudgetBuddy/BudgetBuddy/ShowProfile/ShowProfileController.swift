@@ -26,7 +26,7 @@ class ShowProfileController: UIViewController {
         title = "Profile"
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(onEditButtonTapped))
-        
+        self.currentUser = Auth.auth().currentUser
         self.getUserInformation()
     }
     
