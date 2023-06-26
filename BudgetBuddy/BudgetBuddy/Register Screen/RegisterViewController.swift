@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 class RegisterViewController: UIViewController {
     
+    let database = Firestore.firestore()
     let registerView = RegisterView()
     
     let childProgressView = ProgressSpinnerViewController()
