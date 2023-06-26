@@ -24,6 +24,8 @@ class AddFriendController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.currentUser = Auth.auth().currentUser
 
         self.addFriendView.addFriendButton.addTarget(self, action: #selector(onAddFriendButtonTapped), for: .touchUpInside)
     }
@@ -51,11 +53,8 @@ class AddFriendController: UIViewController {
             }
             
             do {
-                let documentData = document.data()
-                let jsonData = try JSONSerialization.data(withJSONObject: documentData, options: [])
-                let decoder = JSONDecoder()
-                let friend = try decoder.decode(Friend.self, from: jsonData)
-                self.addFriendToCollection(friend: friend)
+                let documentData = try document.data(as: User.self)
+                self.addFriendToCollection(friend: documentData)
             }
             catch {
                 print("error decoding document")
@@ -63,7 +62,7 @@ class AddFriendController: UIViewController {
         }
     }
     
-    func addFriendToCollection(friend: Friend) {
+    func addFriendToCollection(friend: User) {
         database.collection("users").document(self.currentUser.email!).collection("friends").getDocuments { (querySnapshot, error) in
             if let error = error {
                     print("Error getting documents: \(error)")
@@ -72,7 +71,9 @@ class AddFriendController: UIViewController {
                     self.database.collection("users").document(self.currentUser.email!).collection("friends").addDocument(
                         data: ["name": friend.name,
                                "email": friend.email,
-                               "photoURL": friend.photoURL],
+                               "budget": friend.budget,
+                               "spent": friend.spent,
+                               "expectedExpenses": friend.expectedExpenses],
                         completion: {(error) in
                             if let error = error {
                                 print("Error adding document")
@@ -86,15 +87,12 @@ class AddFriendController: UIViewController {
                     
                 for document in documents {
                     do {
-                        let documentData = document.data()
-                        let jsonData = try JSONSerialization.data(withJSONObject: documentData, options: [])
-                        let decoder = JSONDecoder()
-                        let person = try decoder.decode(Friend.self, from: jsonData)
-                        if person.email == friend.email {
+                        let documentData = try document.data(as: User.self)
+                        if documentData.email == friend.email {
                             self.showErrorAlert("You already have \(friend.name) as a friend")
                             return
                         }
-                        print(person)
+                        print(documentData)
                     } catch {
                         print("Error decoding document: \(error)")
                     }
@@ -102,25 +100,48 @@ class AddFriendController: UIViewController {
                 self.database.collection("users").document(self.currentUser.email!).collection("friends").addDocument(
                     data: ["name": friend.name,
                            "email": friend.email,
-                           "photoURL": friend.photoURL],
+                           "budget": friend.budget,
+                           "spent": friend.spent,
+                           "expectedExpenses": friend.expectedExpenses],
                 completion: {(error) in
                     if let error = error {
                         print("Error adding document")
                     }
                 })
-                let current = Friend(name: self.currentUser.displayName!, email: self.currentUser.email!, photoURL: self.currentUser.photoURL?.absoluteString)
-                self.database.collection("users").document(friend.email).collection("friends").addDocument(
-                    data: ["name": friend.name,
-                           "email": friend.email,
-                           "photoURL": friend.photoURL],
-                completion: {(error) in
+                
+                self.database.collection("users").document(self.currentUser.email!).getDocument { (document, error) in
                     if let error = error {
-                        print("Error adding document")
+                        print("error retrieving document")
+                        return
                     }
-                    else {
-                        self.navigationController?.popViewController(animated: true)
+                    
+                    guard let document = document, document.exists else {
+                        print("document doesn't exist")
+                        self.showErrorAlert("Incorrect email")
+                        return
                     }
-                })
+                    
+                    do {
+                        let current = try document.data(as: User.self)
+                        self.database.collection("users").document(friend.email.lowercased()).collection("friends").addDocument(
+                            data: ["name": current.name,
+                                   "email": current.email,
+                                   "budget": current.budget,
+                                   "spent": current.spent,
+                                   "expectedExpenses": current.expectedExpenses],
+                        completion: {(error) in
+                            if let error = error {
+                                print("weird")
+                            }
+                            else {
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                        })
+                    }
+                    catch {
+                        print("error decoding document")
+                    }
+                }
             }
         }
     }
