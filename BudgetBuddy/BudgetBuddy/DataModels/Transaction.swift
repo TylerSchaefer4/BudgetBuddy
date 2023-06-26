@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestoreSwift
 
-struct Trasaction: Codable {
+struct Transaction: Codable {
     @DocumentID var id: String?
     var type: String!
     var amount: Int!

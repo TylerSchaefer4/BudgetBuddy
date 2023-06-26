@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		12FAF97D2A437E4600619DB9 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FAF97C2A437E4600619DB9 /* EditProfileView.swift */; };
 		12FAF97F2A437E5B00619DB9 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FAF97E2A437E5B00619DB9 /* EditProfileViewController.swift */; };
+		3479F72A2A49E3D4001B35D4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3479F7292A49E3D4001B35D4 /* Utilities.swift */; };
 		347F7FB22A40BF1800D27B85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FB12A40BF1800D27B85 /* AppDelegate.swift */; };
 		347F7FB42A40BF1800D27B85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347F7FB32A40BF1800D27B85 /* SceneDelegate.swift */; };
 		347F7FB92A40BF1800D27B85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 347F7FB72A40BF1800D27B85 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		12FAF97C2A437E4600619DB9 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		12FAF97E2A437E5B00619DB9 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		3479F7292A49E3D4001B35D4 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		347F7FAE2A40BF1800D27B85 /* BudgetBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		347F7FB12A40BF1800D27B85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		347F7FB32A40BF1800D27B85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				347F7FF42A45091600D27B85 /* Friend.swift */,
 				347F80052A48F00400D27B85 /* ShowErrorAlert.swift */,
 				3E6B1D0A2A490703003EB214 /* User.swift */,
+				3479F7292A49E3D4001B35D4 /* Utilities.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				347F80062A48F00400D27B85 /* ShowErrorAlert.swift in Sources */,
 				347F80102A4900C100D27B85 /* RegisterViewController.swift in Sources */,
 				347F7FD82A40C0DC00D27B85 /* ShowProfileController.swift in Sources */,
+				3479F72A2A49E3D4001B35D4 /* Utilities.swift in Sources */,
 				347F7FD02A40C07600D27B85 /* EditBudgetView.swift in Sources */,
 				347F80142A4900D600D27B85 /* ProgressSpinnerViewController.swift in Sources */,
 				347F7FB42A40BF1800D27B85 /* SceneDelegate.swift in Sources */,

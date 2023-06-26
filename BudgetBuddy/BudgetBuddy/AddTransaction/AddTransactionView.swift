@@ -23,7 +23,8 @@ class AddTransactionView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        self.backgroundColor = .white
+
         setuplabelType()
         setuppickerTransactionType()
         setuptextFieldAmount()
@@ -44,29 +45,33 @@ class AddTransactionView: UIView {
     
     func setuplabelType(){
         labelType = UILabel()
-        labelType.font = .boldSystemFont(ofSize: 18)
+        labelType.font = .boldSystemFont(ofSize: 20)
         labelType.text = "Type:"
         labelType.translatesAutoresizingMaskIntoConstraints = false
-        labelType.addSubview(labelType)
+        self.addSubview(labelType)
     }
     func setuppickerTransactionType() {
-        pickerTransactionType = UIPickerView()
-        pickerTransactionType.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(pickerTransactionType)
-    }
+            pickerTransactionType = UIPickerView()
+            pickerTransactionType.translatesAutoresizingMaskIntoConstraints = false
+            self.addSubview(pickerTransactionType)
+        }
     func setuptextFieldAmount() {
-        textFieldAmount = UITextField()
-        textFieldAmount.textAlignment = .left
-        textFieldAmount.placeholder = "Amount"
-        textFieldAmount.font = UIFont.systemFont(ofSize: 14)
-        textFieldAmount.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(textFieldAmount)
-    }
+            textFieldAmount = UITextField()
+            textFieldAmount.textAlignment = .left
+            textFieldAmount.placeholder = "Amount"
+            textFieldAmount.font = UIFont.systemFont(ofSize: 18)
+            textFieldAmount.layer.borderWidth = 0.5
+            textFieldAmount.layer.borderColor = UIColor.lightGray.cgColor
+            textFieldAmount.translatesAutoresizingMaskIntoConstraints = false
+            self.addSubview(textFieldAmount)
+        }
     func setuptextFieldNameOfPlace(){
         textFieldNameOfPlace = UITextField()
         textFieldNameOfPlace.textAlignment = .left
         textFieldNameOfPlace.placeholder = "Name of place"
-        textFieldNameOfPlace.font = UIFont.systemFont(ofSize: 14)
+        textFieldNameOfPlace.font = UIFont.systemFont(ofSize: 18)
+        textFieldNameOfPlace.layer.borderWidth = 0.5
+        textFieldNameOfPlace.layer.borderColor = UIColor.lightGray.cgColor
         textFieldNameOfPlace.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(textFieldNameOfPlace)
     }
@@ -74,7 +79,9 @@ class AddTransactionView: UIView {
         textFieldDescription = UITextField()
         textFieldDescription.textAlignment = .left
         textFieldDescription.placeholder = "Description"
-        textFieldDescription.font = UIFont.systemFont(ofSize: 14)
+        textFieldDescription.font = UIFont.systemFont(ofSize: 18)
+        textFieldDescription.layer.borderWidth = 0.5
+        textFieldDescription.layer.borderColor = UIColor.lightGray.cgColor
         textFieldDescription.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(textFieldDescription)
     }
@@ -82,16 +89,18 @@ class AddTransactionView: UIView {
         textFieldLocation = UITextField()
         textFieldLocation.textAlignment = .left
         textFieldLocation.placeholder = "Location"
-        textFieldLocation.font = UIFont.systemFont(ofSize: 14)
+        textFieldLocation.font = UIFont.systemFont(ofSize: 18)
+        textFieldLocation.layer.borderWidth = 0.5
+        textFieldLocation.layer.borderColor = UIColor.lightGray.cgColor
         textFieldLocation.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(textFieldLocation)
     }
     func setuplabelAttachReceipt() {
         labelAttachReceipt = UILabel()
-        labelAttachReceipt.font = .boldSystemFont(ofSize: 18)
+        labelAttachReceipt.font = .boldSystemFont(ofSize: 20)
         labelAttachReceipt.text = "Attach Receipt:"
         labelAttachReceipt.translatesAutoresizingMaskIntoConstraints = false
-        labelAttachReceipt.addSubview(labelAttachReceipt)
+        self.addSubview(labelAttachReceipt)
     }
     
     func setupReceiptPhoto() {
@@ -120,41 +129,40 @@ class AddTransactionView: UIView {
         NSLayoutConstraint.activate([
             labelType.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
             labelType.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            labelType.heightAnchor.constraint(equalToConstant: 100),
-            labelType.widthAnchor.constraint(equalToConstant: 100),
             
             pickerTransactionType.topAnchor.constraint(equalTo: labelType.bottomAnchor,constant: 8),
             pickerTransactionType.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            pickerTransactionType.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            pickerTransactionType.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            pickerTransactionType.heightAnchor.constraint(equalToConstant: 100),
             
             textFieldAmount.topAnchor.constraint(equalTo: pickerTransactionType.bottomAnchor,constant: 8),
             textFieldAmount.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            textFieldAmount.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            
+            textFieldAmount.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+                        
             textFieldNameOfPlace.topAnchor.constraint(equalTo: textFieldAmount.bottomAnchor,constant: 8),
             textFieldNameOfPlace.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            textFieldNameOfPlace.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            textFieldNameOfPlace.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
             textFieldDescription.topAnchor.constraint(equalTo: textFieldNameOfPlace.bottomAnchor,constant: 8),
             textFieldDescription.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            textFieldDescription.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            textFieldDescription.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
             textFieldLocation.topAnchor.constraint(equalTo: textFieldDescription.bottomAnchor,constant: 8),
             textFieldLocation.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            textFieldLocation.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            textFieldLocation.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
-            labelAttachReceipt.topAnchor.constraint(equalTo: labelAttachReceipt.bottomAnchor,constant: 8),
+            labelAttachReceipt.topAnchor.constraint(equalTo: textFieldLocation.bottomAnchor,constant: 8),
             labelAttachReceipt.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            labelAttachReceipt.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            labelAttachReceipt.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
             ReceiptPhoto.topAnchor.constraint(equalTo: labelAttachReceipt.bottomAnchor,constant: 8),
             ReceiptPhoto.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            ReceiptPhoto.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            ReceiptPhoto.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
-           
             addButton.topAnchor.constraint(equalTo: ReceiptPhoto.bottomAnchor,constant: 8),
             addButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            addButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            addButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
         ])
     }
+
 }
