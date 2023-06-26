@@ -24,6 +24,29 @@ class ViewController: UIViewController {
         view = homeScreen
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Financial Summary"
+        
+        let profileButton = UIBarButtonItem(image: UIImage(systemName: "person.fill"), style: .plain, target: self, action: #selector(onProfileButtonTapped))
+
+        navigationItem.rightBarButtonItem = profileButton
+
+        
+        homeScreen.tableViewRecentTransactions.delegate = self
+        homeScreen.tableViewRecentTransactions.dataSource = self
+        homeScreen.tableViewRecentTransactions.separatorStyle = .none
+
+
+        self.homeScreen.buttonAddTransaction.addTarget(self, action: #selector(onButtonAddTransaction), for: .touchUpInside)
+        
+        self.homeScreen.buttonEditBudget.addTarget(self, action: #selector(onButtonEditBudget), for: .touchUpInside)
+        self.homeScreen.buttonAddFriends.addTarget(self, action: #selector(onButtonAddFriends), for: .touchUpInside)
+
+        hideKeyboardOnTapOutside()
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -98,22 +121,27 @@ class ViewController: UIViewController {
                         
                         
                         self.database.collection("users")
-                            .document((self.currentUser?.email)!)
-                            .collection("transactions")
-                            .addSnapshotListener(includeMetadataChanges: false, listener: { querySnapshot, error in
-                                if let documents = querySnapshot?.documents {
-                                    self.transactions.removeAll()
-                                    for document in documents {
-                                        do {
-                                            let transaction  = try document.data(as: Transaction.self)
-                                            self.transactions.append(transaction)
-                                        } catch {
-                                            print(error)
-                                        }
+                        .document((self.currentUser?.email)!)
+                        .collection("transactions")
+                        .addSnapshotListener(includeMetadataChanges: false, listener: { querySnapshot, error in
+                            if let documents = querySnapshot?.documents {
+                                self.transactions.removeAll()
+                                for document in documents {
+                                    do {
+                                        let transaction  = try document.data(as: Transaction.self)
+                                        self.transactions.append(transaction)
+                                    } catch {
+                                        print(error)
                                     }
+                                }
+                                print("Transactions: \(self.transactions)")
+                                DispatchQueue.main.async {
                                     self.homeScreen.tableViewRecentTransactions.reloadData()
                                 }
-                            })
+
+                            }
+                        })
+
 
                     }
 
@@ -145,29 +173,6 @@ class ViewController: UIViewController {
         }
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        title = "Financial Summary"
-        
-        let profileButton = UIBarButtonItem(image: UIImage(systemName: "person.fill"), style: .plain, target: self, action: #selector(onProfileButtonTapped))
-
-            navigationItem.rightBarButtonItem = profileButton
-
-        
-        homeScreen.tableViewRecentTransactions.delegate = self
-        homeScreen.tableViewRecentTransactions.dataSource = self
-
-        homeScreen.tableViewRecentTransactions.register(TransactionsTableViewCell.self, forCellReuseIdentifier: "TransactionsTableViewCell")
-
-        self.homeScreen.buttonAddTransaction.addTarget(self, action: #selector(onButtonAddTransaction), for: .touchUpInside)
-        
-        self.homeScreen.buttonEditBudget.addTarget(self, action: #selector(onButtonEditBudget), for: .touchUpInside)
-        self.homeScreen.buttonAddFriends.addTarget(self, action: #selector(onButtonAddFriends), for: .touchUpInside)
-
-        hideKeyboardOnTapOutside()
-        
-    }
     
     @objc func onButtonAddTransaction() {
         let addTransactionViewController = AddTransactionViewController()
@@ -207,25 +212,23 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return transactions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Configs.tableViewTransactionsID, for: indexPath) as! TransactionsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "transactions", for: indexPath) as! TransactionsTableViewCell
         let transaction = transactions[indexPath.row]
-        cell.labelEmail.text = "YO"
-        
-        
-//        cell.nameLabel.text = transaction.name
-//        cell.amountLabel.text = "$\(transaction.amount)"
+        cell.labelAmount.text = "$\(transaction.amount ?? 0)"
+        cell.labelNameOfPlace.text = transaction.nameOfPlace
+        cell.labelDescription.text = transaction.description
+        cell.labelLocation.text = transaction.location
+        print("YOOYOYOOYOOYOYOOY")
+        print(transaction)
         
         return cell
     }
+
 }
 
 
