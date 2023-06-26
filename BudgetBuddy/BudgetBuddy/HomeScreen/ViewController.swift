@@ -131,6 +131,9 @@ class ViewController: UIViewController {
         
         
         self.homeScreen.buttonAddTransaction.addTarget(self, action: #selector(onButtonAddTransaction), for: .touchUpInside)
+        
+        self.homeScreen.buttonEditBudget.addTarget(self, action: #selector(onButtonEditBudget), for: .touchUpInside)
+        self.homeScreen.buttonAddFriends.addTarget(self, action: #selector(onButtonAddFriends), for: .touchUpInside)
 
         hideKeyboardOnTapOutside()
         
@@ -140,6 +143,18 @@ class ViewController: UIViewController {
         let addTransactionViewController = AddTransactionViewController()
         //showProfileController.currentUser =
         navigationController?.pushViewController(addTransactionViewController, animated: true)
+    }
+    
+    @objc func onButtonEditBudget() {
+        let editBudgetController = EditBudgetController()
+        //showProfileController.currentUser =
+        navigationController?.pushViewController(editBudgetController, animated: true)
+    }
+    
+    @objc func onButtonAddFriends() {
+        let addFriendsController = AddFriendController()
+        //showProfileController.currentUser =
+        navigationController?.pushViewController(addFriendsController, animated: true)
     }
     
     @objc func onProfileButtonTapped() {
