@@ -31,11 +31,11 @@ class AddFriendView: UIView {
         NSLayoutConstraint.activate([
             emailTextField.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
             emailTextField.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            emailTextField.widthAnchor.constraint(equalToConstant: 40),
+            emailTextField.widthAnchor.constraint(equalToConstant: 150),
             
             addFriendButton.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 16),
             addFriendButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            addFriendButton.widthAnchor.constraint(equalToConstant: 40)
+            addFriendButton.widthAnchor.constraint(equalToConstant: 150)
         ])
     }
     

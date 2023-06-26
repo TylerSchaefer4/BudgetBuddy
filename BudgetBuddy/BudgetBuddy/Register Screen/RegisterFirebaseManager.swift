@@ -21,7 +21,7 @@ extension RegisterViewController{
            let email = registerView.textFieldEmail.text,
            let password = registerView.textFieldPassword.text{
             //Validations....
-            Auth.auth().createUser(withEmail: email, password: password, completion: { [self]result, error in
+            Auth.auth().createUser(withEmail: email.lowercased(), password: password, completion: { [self]result, error in
                 if error == nil{
                     //MARK: the user creation is successful...
                     self.setNameOfTheUserInFirebaseAuth(name: name)
@@ -30,7 +30,7 @@ extension RegisterViewController{
                     
                     self.saveUserToFirestore(user: user)
                                     
-                                    }
+                }
                     else{
                     //MARK: there is a error creating the user...
                     print(error)
@@ -43,7 +43,14 @@ extension RegisterViewController{
         let collectionUsers = database
                         .collection("users")
                     do{
-                        try collectionUsers.addDocument(from: user, completion: {(error) in
+                        try collectionUsers.document(user.email)
+                            .setData([
+                                "name": user.name,
+                                "email": user.email.lowercased(),
+                                "budget": user.budget,
+                                "expectedExpenses": user.expectedExpenses,
+                                "spent": user.spent
+                            ], completion: {(error) in
                             if error == nil{
 //                                self.navigationController?.popViewController(animated: true)
                             }
