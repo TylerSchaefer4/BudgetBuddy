@@ -105,7 +105,7 @@ class AddTransactionView: UIView {
     
     func setupReceiptPhoto() {
         ReceiptPhoto = UIButton(type: .system)
-        ReceiptPhoto.setTitle("", for: .normal)
+        //ReceiptPhoto.setTitle("Click Me", for: .normal)
         ReceiptPhoto.setImage(UIImage(systemName: "newspaper")?.withRenderingMode(.alwaysOriginal), for: .normal)
         //buttonTakePhoto.setImage(UIImage(systemName: "camera.fill")?.withRenderingMode(.alwaysOriginal), for: .normal)
         ReceiptPhoto.contentHorizontalAlignment = .fill
@@ -158,6 +158,8 @@ class AddTransactionView: UIView {
             ReceiptPhoto.topAnchor.constraint(equalTo: labelAttachReceipt.bottomAnchor,constant: 8),
             ReceiptPhoto.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             ReceiptPhoto.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            ReceiptPhoto.widthAnchor.constraint(equalToConstant: 100),
+            ReceiptPhoto.heightAnchor.constraint(equalToConstant: 100),
             
             addButton.topAnchor.constraint(equalTo: ReceiptPhoto.bottomAnchor,constant: 8),
             addButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
