@@ -21,8 +21,8 @@ class HomeScreenView: UIView {
     var labelExpectedExpenses: UILabel!
     //var labelAdditionalExpenses: UILabel!
     var buttonEditBudget: UIButton!
-    var labelBudgetLeaderBoard: UILabel!
-    var tableViewBudgetLeaderBoard: UITableView!
+    var buttonBudgetLeaderBoard: UIButton!
+    //var tableViewBudgetLeaderBoard: UITableView!
     var buttonAddFriends: UIButton!
 
     override init(frame: CGRect) {
@@ -40,7 +40,6 @@ class HomeScreenView: UIView {
         //setuplabelAdditionalExpenses()
         setupbuttonEditBudget()
         setuplabelBudgetLeaderBoard()
-        setuptableViewBudgetLeaderBoard()
         setupbuttonAddFriends()
         
         initConstraints()
@@ -122,19 +121,17 @@ class HomeScreenView: UIView {
         scrollView.addSubview(buttonEditBudget)
     }
     func setuplabelBudgetLeaderBoard(){
-        labelBudgetLeaderBoard = UILabel()
-        labelBudgetLeaderBoard.text = "Budget Leaderboard"
-
-        labelBudgetLeaderBoard.font = .boldSystemFont(ofSize: 18)
-        labelBudgetLeaderBoard.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.addSubview(labelBudgetLeaderBoard)
+        buttonBudgetLeaderBoard = UIButton(type: .system)
+        buttonBudgetLeaderBoard.setTitle("Budget Leaderboard", for: .normal)
+        buttonBudgetLeaderBoard.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(buttonBudgetLeaderBoard)
     }
-    func setuptableViewBudgetLeaderBoard(){
-        tableViewBudgetLeaderBoard = UITableView()
-        tableViewBudgetLeaderBoard.register(FriendsTableViewCell.self, forCellReuseIdentifier: Configs.tableViewFriendsID)
-        tableViewBudgetLeaderBoard.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.addSubview(tableViewBudgetLeaderBoard)
-    }
+//    func setuptableViewBudgetLeaderBoard(){
+//        tableViewBudgetLeaderBoard = UITableView()
+//        tableViewBudgetLeaderBoard.register(FriendsTableViewCell.self, forCellReuseIdentifier: Configs.tableViewFriendsID)
+//        tableViewBudgetLeaderBoard.translatesAutoresizingMaskIntoConstraints = false
+//        scrollView.addSubview(tableViewBudgetLeaderBoard)
+//    }
     func setupbuttonAddFriends(){
         buttonAddFriends = UIButton(type: .system)
         buttonAddFriends.setTitle("Add Friends", for: .normal)
@@ -157,6 +154,7 @@ class HomeScreenView: UIView {
                 tableViewRecentTransactions.topAnchor.constraint(equalTo: labelRecentTransactions.bottomAnchor, constant: 8),
                 tableViewRecentTransactions.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor),
                 tableViewRecentTransactions.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor),
+                tableViewRecentTransactions.heightAnchor.constraint(equalToConstant: 200),
                 
                 buttonAddTransaction.topAnchor.constraint(equalTo: tableViewRecentTransactions.bottomAnchor, constant: 8),
                 buttonAddTransaction.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
@@ -179,14 +177,14 @@ class HomeScreenView: UIView {
                 buttonEditBudget.topAnchor.constraint(equalTo: labelExpectedExpenses.bottomAnchor, constant: 8),
                 buttonEditBudget.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
                 
-                labelBudgetLeaderBoard.topAnchor.constraint(equalTo: buttonEditBudget.bottomAnchor, constant: 16),
-                labelBudgetLeaderBoard.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+                buttonBudgetLeaderBoard.topAnchor.constraint(equalTo: buttonEditBudget.bottomAnchor, constant: 16),
+                buttonBudgetLeaderBoard.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
                 
-                tableViewBudgetLeaderBoard.topAnchor.constraint(equalTo: labelBudgetLeaderBoard.bottomAnchor, constant: 8),
-                tableViewBudgetLeaderBoard.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor),
-                tableViewBudgetLeaderBoard.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor),
+//                tableViewBudgetLeaderBoard.topAnchor.constraint(equalTo: labelBudgetLeaderBoard.bottomAnchor, constant: 8),
+//                tableViewBudgetLeaderBoard.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor),
+//                tableViewBudgetLeaderBoard.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor),
                 
-                buttonAddFriends.topAnchor.constraint(equalTo: tableViewBudgetLeaderBoard.bottomAnchor, constant: 8),
+                buttonAddFriends.topAnchor.constraint(equalTo: buttonBudgetLeaderBoard.bottomAnchor, constant: 8),
                 buttonAddFriends.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
                 buttonAddFriends.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
             ])

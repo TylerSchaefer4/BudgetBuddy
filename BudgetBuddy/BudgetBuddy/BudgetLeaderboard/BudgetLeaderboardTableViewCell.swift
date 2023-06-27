@@ -64,7 +64,7 @@ class BudgetLeaderboardTableViewCell: UITableViewCell {
             nameLabel.leadingAnchor.constraint(equalTo: wrapperCellView.leadingAnchor, constant: 4),
             nameLabel.heightAnchor.constraint(equalToConstant: 20),
             
-            percentLabel.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: 4),
+            percentLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4),
             percentLabel.leadingAnchor.constraint(equalTo: wrapperCellView.leadingAnchor, constant: 4),
             percentLabel.heightAnchor.constraint(equalToConstant: 20),
             

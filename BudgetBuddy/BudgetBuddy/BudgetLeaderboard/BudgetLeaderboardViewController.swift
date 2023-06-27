@@ -27,12 +27,18 @@ class BudgetLeaderboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Budget Leaderboard"
+        
         self.leaderboardView.budgetLeaderboard.delegate = self
         self.leaderboardView.budgetLeaderboard.dataSource = self
         
         self.currentUser = Auth.auth().currentUser
         
         self.getFriends()
+        
+        print("hdeunfunru")
+        self.friends.sort{($0.spent / $0.budget) < ($1.spent / $1.budget)}
+        self.leaderboardView.budgetLeaderboard.reloadData()
     }
     
     func getFriends() {
@@ -45,27 +51,51 @@ class BudgetLeaderboardViewController: UIViewController {
                     for document in querySnapshot!.documents {
                         do {
                             let documentData = try document.data(as: User.self)
-                            self.friends.append(documentData)
+                            print(documentData.name)
+                            self.database.collection("users").document(documentData.email.lowercased()).getDocument(as: User.self) {result in
+                                switch result {
+                                    case .success(let document):
+                                        print("document: \(document)")
+                                        self.friends.append(document)
+                                        self.friends.sort{($0.spent / $0.budget) < ($1.spent / $1.budget)}
+                                        self.leaderboardView.budgetLeaderboard.reloadData()
+                                        break
+                                    case .failure(let error):
+                                        // Handle the error
+                                        print("Error retrieving document: \(error)")
+                                        break
+                                }
+                            }
+                            //self.friends.append(documentData)
                         }
                         catch {
                             print("error decoding documents")
                         }
                     }
-                    self.friends.sort{($0.spent / $0.budget) < ($1.spent / $1.budget)}
+//                    print("sort and reload")
+//                    self.friends.sort{($0.spent / $0.budget) < ($1.spent / $1.budget)}
+//                    print(self.friends!)
+//                    self.leaderboardView.budgetLeaderboard.reloadData()
                 }
         })
+    }
+    
+    func getFriendsHelp(friend: User) {
+        
     }
 }
 
 extension BudgetLeaderboardViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(friends.count)
         return friends.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Configs.tableViewLeaderboardID, for: indexPath) as! BudgetLeaderboardTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "leaderboard", for: indexPath) as! BudgetLeaderboardTableViewCell
         cell.nameLabel.text = friends[indexPath.row].name
-        cell.percentLabel.text = "Spent: \(friends[indexPath.row].spent / friends[indexPath.row].budget)% of budget"
+        print("\(cell.nameLabel.text): \(friends[indexPath.row].spent)")
+        cell.percentLabel.text = "Spent: \((Double(friends[indexPath.row].spent) / Double(friends[indexPath.row].budget)) * 100)% of budget"
         
         return cell
     }

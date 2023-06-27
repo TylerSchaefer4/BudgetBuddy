@@ -27,16 +27,17 @@ class BudgetLeaderboardView: UIView {
     
     func setupBudgetLeaderboard() {
         budgetLeaderboard = UITableView()
-        budgetLeaderboard.register(BudgetLeaderboardTableViewCell.self, forCellReuseIdentifier: Configs.tableViewLeaderboardID)
+        budgetLeaderboard.register(BudgetLeaderboardTableViewCell.self, forCellReuseIdentifier: "leaderboard")
         budgetLeaderboard.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(budgetLeaderboard)
     }
     
     func initConstraints() {
         NSLayoutConstraint.activate([
-            budgetLeaderboard.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
-            budgetLeaderboard.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            budgetLeaderboard.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16)
+            budgetLeaderboard.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
+            budgetLeaderboard.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),
+            budgetLeaderboard.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            budgetLeaderboard.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -8),
         ])
     }
 

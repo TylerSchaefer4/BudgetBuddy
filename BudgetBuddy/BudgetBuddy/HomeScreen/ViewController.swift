@@ -42,6 +42,7 @@ class ViewController: UIViewController {
         
         self.homeScreen.buttonEditBudget.addTarget(self, action: #selector(onButtonEditBudget), for: .touchUpInside)
         self.homeScreen.buttonAddFriends.addTarget(self, action: #selector(onButtonAddFriends), for: .touchUpInside)
+        self.homeScreen.buttonBudgetLeaderBoard.addTarget(self, action: #selector(onButtonBudgetLeaderboard), for: .touchUpInside)
 
         hideKeyboardOnTapOutside()
         
@@ -49,7 +50,8 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        homeScreen.tableViewRecentTransactions.delegate = self
+        homeScreen.tableViewRecentTransactions.dataSource = self
         
         
         //MARK: handling if the Authentication state is changed (sign in, sign out, register)...
@@ -173,6 +175,11 @@ class ViewController: UIViewController {
         }
     }
     
+    @objc func onButtonBudgetLeaderboard() {
+        let leaderboard = BudgetLeaderboardViewController()
+        leaderboard.friends = [User]()
+        navigationController?.pushViewController(leaderboard, animated: true)
+    }
     
     @objc func onButtonAddTransaction() {
         let addTransactionViewController = AddTransactionViewController()
