@@ -97,7 +97,7 @@ class EditProfileViewController: UIViewController {
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = name
         //changeRequest?.photoURL = photoURL
-    
+
         changeRequest?.commitChanges(completion: {(error) in
             if error != nil{
                 print("Error occured: \(String(describing: error))")
@@ -108,12 +108,31 @@ class EditProfileViewController: UIViewController {
                         print("Failed to update email:", error.localizedDescription)
                         self.showErrorAlert("Failed to update email")
                     } else {
-                        self.updateFirestore(name: name, email: email, user: oldUserInfo)
+                        if oldUserInfo.email.lowercased() == email.lowercased() {
+                            self.updateFirestore(name: name, email: email, user: oldUserInfo)
+                        } else {
+                            self.createNewUserAndDeleteOld(name: name, email: email, user: oldUserInfo)
+                        }
                     }
                 }
             }
         })
     }
+
+    func createNewUserAndDeleteOld(name: String, email: String, user:User) {
+        database.collection("users").document(email.lowercased()).setData([
+            "name": name,
+            "email": email.lowercased(),
+            "expectedExpenses": user.expectedExpenses,
+            "budget": user.budget,
+            "spent": user.spent
+        ], completion: {(error) in
+            if error == nil {
+                self.deleteOldUser(user: user)
+            }
+        })
+    }
+
     
     func updateFirestore(name: String, email: String, user:User) {
         database.collection("users").document(email.lowercased()).setData([
